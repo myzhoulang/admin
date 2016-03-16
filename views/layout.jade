@@ -7,8 +7,5 @@ html
   body
     block content
 
-    block footer
-    script(src='/javascripts/vendor/jquery.min.js')
-    script(src='/javascripts/vendor/angular.min.js')
-    script(src='/javascripts/vendor/angular-route.min.js')
-    script(src='/javascripts/vendor/angular-ui-router.js')
+    script(src='/javascripts/vendor/require.js', data-main="/javascripts/jsbuild/main.min.js")
+    script(src='/javascripts/vendor/require.js', data-main="/javascripts/app.js")
