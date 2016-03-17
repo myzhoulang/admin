@@ -7,8 +7,9 @@ require.config({
 		'angular-ui-router':'vendor/angular-ui-router',
 		'bootstrap':'./bootstrap',
 		'app':'./app',
-		'orderCtrl':'./controllers/orderCtrl.js',
-		'userCtrl':'./controllers/userCtrl.js'
+		'loginCtrl': '../router/login/loginCtrl',
+		'homeCtrl':'../router/home/homeCtrl',
+		'indexCtrl':'../router/home/indexCtrl'
 	},
 	shim:{
 		'$':{

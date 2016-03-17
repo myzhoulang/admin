@@ -43,6 +43,7 @@ gulp.task('bulidCtrl', ['bundle','cleanBulidCtrl'], function(){
     '!'+srcJsPath+'/bootstrap.js', 
     '!'+srcJsPath+'/lib.js'])
     .pipe(rev())
+    .pipe(uglify())
     .pipe(gulp.dest(distJsPath+'/'))
     .pipe(rev.manifest())
     .pipe(gulp.dest('./mainfest/'))
