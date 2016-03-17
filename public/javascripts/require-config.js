@@ -1,12 +1,14 @@
 require.config({
 	baseUrl: "/javascripts/",
 	paths: {
-		'$': 'vendor/jquery.min',
-		'angular':'vendor/angular.min',
-		'angular-route':'vendor/angular-route.min',
+		'$': 'vendor/jquery',
+		'angular':'vendor/angular',
+		'angular-route':'vendor/angular-route',
 		'angular-ui-router':'vendor/angular-ui-router',
 		'bootstrap':'./bootstrap',
-		'app':'./app'
+		'app':'./app',
+		'orderCtrl':'./controllers/orderCtrl.js',
+		'userCtrl':'./controllers/userCtrl.js'
 	},
 	shim:{
 		'$':{
