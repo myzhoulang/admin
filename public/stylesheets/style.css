@@ -18,11 +18,20 @@ h3, h4, h5 {
 h3{
   font-size: 16px;
 }
+a:focus{
+  outline: none;
+}
 img.circle-border{
   border: 6px solid #fff;
   border-radius: 50%;
 }
 
+.breadcrumb > li a{
+  color: inherit;
+}
+.breadcrumb > li.active{
+  font-weight: 600;
+}
 .vertical-align div{
   display: inline-block;
   vertical-align: middle;
@@ -33,7 +42,19 @@ img.circle-border{
 .gray-bg{
   background-color: #f3f3f4;
 }
-.bg-navy, .btn-navy,.btn-navy:hover{
+
+.btn-default,.btn-default:hover{
+  background-color:#c2c2c2;
+  border-color:#c2c2c2;
+  color: #fff;
+}
+.bg-navy,.btn-navy:hover{
+  background-color: #1ab394;
+  border-color: #1ab394;
+  color: #fff;
+}
+
+.btn-primary,.btn-primary:hover{
   background-color: #1ab394;
   border-color: #1ab394;
   color: #fff;
@@ -60,7 +81,7 @@ img.circle-border{
 }
 
 
-/* 按钮 */
+/* === 按钮 */
 .btn-white{
   color: inherit;
   background: white;
@@ -70,6 +91,43 @@ img.circle-border{
   color: inherit;
   border-color: #d2d2d2;
 }
+.btn-w-m{
+  min-width: 120px;
+}
+
+/*===  3D按钮*/
+.btn-dim{
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border-radius: 5px !important;
+}
+
+.btn-dim.btn-success{
+  box-shadow: inset 0px 0px 0px #1872ab, 0px 5px 0px 0px #1872ab, 0px 10px 5px #999999;
+}
+.btn-dim.btn-info{
+  box-shadow: inset 0px 0px 0px #1eacae, 0px 5px 0px 0px #1eacae, 0px 10px 5px #999999;
+}
+.btn-dim.btn-warning{
+  box-shadow: inset 0px 0px 0px #f79d3c, 0px 5px 0px 0px #f79d3c, 0px 10px 5px #999999;
+}
+.btn-dim.btn-primary{
+  box-shadow: inset 0px 0px 0px #16987e, 0px 5px 0px 0px #16987e, 0px 10px 5px #999999;
+}
+.btn-dim.btn-danger{
+  box-shadow: inset 0px 0px 0px #ea394c, 0px 5px 0px 0px #ea394c, 0px 10px 5px #999999;
+}
+
+.btn-dim-lg{
+  width: 90px;
+  height: 90px;
+  font-size: 42px;
+}
+
+
 
 
 .no-borders{
@@ -499,6 +557,9 @@ a.list-group-item.active,a.list-group-item.active:hover{
 }
 .m-xs{
   margin: 5px;
+}
+.m-b-xs{
+  margin-bottom: 5px;
 }
 .m-b-md{
   margin-bottom: 20px;
