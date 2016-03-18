@@ -9,7 +9,9 @@ require.config({
 		'app':'./app',
 		'loginCtrl': '../router/login/loginCtrl',
 		'homeCtrl':'../router/home/homeCtrl',
-		'indexCtrl':'../router/home/indexCtrl'
+		'indexCtrl':'../router/home/indexCtrl',
+		'metricsCtrl':'../router/metrics/metricsCtrl',
+		'widgetsCtrl': '../router/widgets/widgetsCtrl'
 	},
 	shim:{
 		'$':{

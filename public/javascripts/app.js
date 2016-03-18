@@ -25,6 +25,7 @@ define(['angular', '$'], function(angular, $){
     '$urlRouterProvider',
     '$stateProvider',
     function($httpProvider, $locationProvider, $urlRouterProvider, $stateProvider){
+      $locationProvider.html5Mode(true);
       $urlRouterProvider.when("/", "/login");
       
       // 登录页面
@@ -70,6 +71,34 @@ define(['angular', '$'], function(angular, $){
               return defer.promise;
             }]
           }
+      })
+      .state('home.metrics', {
+        url:'/metrics',
+        templateUrl:'/router/metrics/metrics.tpl.html',
+        controller:'metricsCtrl',
+        resolve: {
+          loadCtrl:['$q', function($q){
+            var defer = $q.defer();
+            require(["metricsCtrl"], function(){
+              defer.resolve()
+            });
+            return defer.promise;
+          }]
+        }
+      })
+      .state('home.widgets', {
+        url:'/widgets',
+        templateUrl:'/router/widgets/widgets.tpl.html',
+        controller:'widgetsCtrl',
+        resolve: {
+          loadCtrl:['$q', function($q){
+            var defer = $q.defer();
+            require(["widgetsCtrl"], function(){
+              defer.resolve()
+            });
+            return defer.promise;
+          }]
+        }
       })
   }]);
   

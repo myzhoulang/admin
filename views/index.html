@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <base href="/">
   <link href="favicon.ico" rel="icon">
   <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
   <link rel="stylesheet" href="/stylesheets/font-awesome.css">
 <!--  <link rel="stylesheet" href="/stylesheets/css.css">-->
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
-<body ng-class="{'': $state.is('login')}">
+<body ng-class="{'gray-bg': $state.is('login')}" class="skin-1">
   <div ui-view></div>
   <script src='/javascripts/require.js', data-main="/javascripts/lib.js"></script>
 </body>
