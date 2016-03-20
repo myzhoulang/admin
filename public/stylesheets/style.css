@@ -310,7 +310,9 @@ a.list-group-item.active,a.list-group-item.active:hover{
 
 .nav-second-level > li >a{
   padding: 7px 10px 7px 42px;
-  
+}
+.nav-second-level > li.active{
+  border: none;
 }
 
 .metismenu .arrow{
@@ -388,7 +390,7 @@ a.list-group-item.active,a.list-group-item.active:hover{
   padding:14px 15px 7px;
   border-color:#e7eaec;
   border-style: solid solid none;
-  border-width: 1px;
+  border-width: 4px 1px 1px;
   min-height: 48px;
   background-color: #fff;
 }
@@ -516,7 +518,7 @@ a.list-group-item.active,a.list-group-item.active:hover{
   height: 22px;
   border:none;
   cursor: pointer;
-  background: url('/images/green.png') no-repeat;
+  background: url('/public/images/green.png') no-repeat;
 }
 .iradio_square-green{
   background-position: -192px 0; 
@@ -526,6 +528,45 @@ a.list-group-item.active,a.list-group-item.active:hover{
 }
 .iradio_square-green.checked{
   background-position: -168px 0;
+}
+
+/* panel */
+.panel{
+  border-radius: 0;
+}
+.panel-heading{
+  border-radius:0;
+}
+
+/* nav tabs */
+.tab{
+  margin-bottom: 25px;
+}
+.nav.nav-tabs li{
+  background: none;
+  border: none;
+}
+.nav.nav-tabs li > a{
+  border-radius: 0;
+  color: #A7B1C2;
+  padding:10px 25px;
+  font-weight: 600;
+}
+.nav.nav-tabs li > a:hover,.nav.nav-tabs li.active > a{
+  color: #676a6c;
+}
+.tab-content{
+  border:1px solid #ddd;
+  border-top: none;
+}
+
+/* badges */
+.badge-md{
+  padding:6px 14px;
+}
+
+.badge-lg{
+  padding:8px 18px;
 }
 
 /* 页脚 */

@@ -11,7 +11,8 @@ require.config({
 		'homeCtrl':'../router/home/homeCtrl',
 		'indexCtrl':'../router/home/indexCtrl',
 		'metricsCtrl':'../router/metrics/metricsCtrl',
-		'widgetsCtrl': '../router/widgets/widgetsCtrl'
+		'widgetsCtrl': '../router/widgets/widgetsCtrl',
+		'uiCtrl': '../router/ui/uiCtrl'
 	},
 	shim:{
 		'$':{

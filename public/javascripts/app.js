@@ -102,11 +102,46 @@ define(['angular', '$'], function (angular, $) {
         })
         .state('home.ui', {
           abstract: true,
-          template:'<div ui-view=""></div>'
+          template:'<div ui-view=""></div>',
+          resolve:{
+            loadCtrl:['$q', function($q){
+              var defer = $q.defer();
+              require(['uiCtrl'], function(){
+                defer.resolve();
+              });
+              return defer.promise;
+            }]
+          }
         })
         .state('home.ui.buttons', {
           url: '/uiButtons',
+          controller:'buttonsCtrl',
           templateUrl: '/router/ui/buttons.tpl.html'
+        })
+        .state('home.ui.draggablePanels', {
+          url:'/draggablePanels',
+          controller:'draggablePanelsCtrl',
+          templateUrl:'/router/ui/draggablePanels.tpl.html'
+        })
+        .state('home.ui.panels', {
+          url:'/panels',
+          controller:'panelsCtrl',
+          templateUrl:'/router/ui/panels.tpl.html'
+        })
+        .state('home.ui.tabs', {
+          url:'/tabs',
+          controller:'tabsCtrl',
+          templateUrl:'/router/ui/tabs.tpl.html'
+        })
+        .state('home.ui.notifs', {
+          url:'/notifs',
+          controller:"notifsCtrl",
+          templateUrl:'/router/ui/notifs.tpl.html'
+        })
+        .state('home.ui.badgesLabels', {
+          url:'/badgesLabels',
+          controller:'badgesLabelsCtrl',
+          templateUrl:'/router/ui/badgesLabels.tpl.html'
         })
     }]);
 
