@@ -746,7 +746,7 @@ a.list-group-item.active,a.list-group-item.active:hover{
 }
 
 .table .sorting:after{
-  float: right;
+  /*float: right;*/
   content: "\f0dc";
   font-family: fontawesome;
   color: rgba(50,50,50,.5);
