@@ -195,16 +195,6 @@ define(['angular', '$'], function (angular, $) {
           controller:'productsGridCtrl',
           templateUrl:'/router/products/productsGrid.tpl.html'
         })
-        .state('home.products.productsList', {
-          url:'/productsList',
-          controller:'productsListCtrl',
-          templateUrl:'/router/products/productsList.tpl.html'
-        })
-        .state('home.products.product', {
-          url:'/product/:id',
-          controller:'prodcutCtrl',
-          templateUrl:'/router/products/product.tpl.html'
-        })
     }]);
 
   $(document).ready(function () {
