@@ -28,7 +28,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/users', users);
 
 app.all('/*', function(req, res){
-  res.render('index');
+  var oPath = path.parse(req.url);
+  console.log(req.url)
+  if(['.js', '.png'].indexOf(oPath.ext) !== -1){
+    console.log(1)
+    res.sendFile(req.url);
+  }else{
+
+    res.render('index');
+  }
 });
 
 // catch 404 and forward to error handler

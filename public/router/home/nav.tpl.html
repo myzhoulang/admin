@@ -34,7 +34,7 @@
         <span>Graphs</span>
         <i class="fa arrow"></i>
       </a>
-      <ul class="nav nav-second-level collapse in">
+      <ul class="nav nav-second-level collapse">
         <li><a href="">Flot Charts</a></li>
         <li><a href="">Morris.js Charts</a></li>
         <li><a href="">Rickshaw Charts</a></li>
@@ -159,15 +159,15 @@
         <span class="fa arrow"></span>
       </a>
       <ul class="nav nav-second-level collapse in">
-        <li><a ui-sref="home.index">Typography</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.index">Typography</a></li>
         <li><a href="">Icons</a></li>
-        <li><a href="">Draggable Panels</a></li>
-        <li><a href="">Buttons</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.ui.draggablePanels">Draggable Panels</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.ui.buttons">Buttons</a></li>
         <li><a href="">Video</a></li>
-        <li><a href="">Panels</a></li>
-        <li><a href="">Tabs</a></li>
-        <li><a href="">Notifications & Tooltips</a></li>
-        <li><a href="">Badges, Labels, Progress</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.ui.panels">Panels</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.ui.tabs">Tabs</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.ui.notifs">Notifications & Tooltips</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.ui.badgesLabels">Badges, Labels, Progress</a></li>
       </ul>
     </li>
     
@@ -179,31 +179,31 @@
       </a>
     </li>
     
-    <li>
+    <li class="active">
       <a href="">
         <i class="fa fa-table"></i>
         <span>Tables</span>
         <span class="fa arrow"></span>
       </a>
-      <ul class="nav nav-second-level collapse">
-        <li><a href="">Static Tables</a></li>
-        <li><a href="">Data Tables</a></li>
-        <li><a href="">Foo Tables</a></li>
-        <li><a href="">jqGrid</a></li>
+      <ul class="nav nav-second-level collapse in">
+        <li ui-sref-active="active"><a ui-sref="home.tables.staticTables">Static Tables</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.tables.dataTables">Data Tables</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.tables.fooTable">Foo Tables</a></li>
+        <li ui-sref-active="active"><a href="">jqGrid</a></li>
       </ul>
     </li>
     
-    <li>
+    <li class="active">
       <a href="">
         <i class="fa fa-shopping-cart"></i>
-        <span>E-commerce</span>
+        <span>Products</span>
         <span class="fa arrow"></span>
       </a>
-      <ul class="nav nav-second-level collapse">
-        <li><a href="">Products grid</a></li>
-        <li><a href="">Products list</a></li>
-        <li><a href="">Product edit</a></li>
-        <li><a href="">Orders</a></li>
+      <ul class="nav nav-second-level collapse in">
+        <li ui-sref-active="active"><a ui-sref="home.products.productsGrid">Products grid</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.products.productsList">Products list</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.products.product()">Product edit</a></li>
+        <li ui-sref-active="active"><a href="">Orders</a></li>
       </ul>
     </li>
     
