@@ -1,0 +1,226 @@
+/*
+	 修改bootstrap.css
+ */
+
+/* 文字颜色 */
+.text-navy{
+  color: #1ab394;
+}
+.text-muted{
+  color: #888;
+}
+.text-primary{
+  color: inherit;
+}
+.text-success{
+  color:#1c84c6;
+}
+.text-info{
+  color: #23c6c8;
+}
+.text-warning{
+  color: #f8ac59;
+}
+.text-danger{
+  color: #ed5565;
+}
+
+
+
+/*== 按钮*/
+.btn-default,.btn-default:hover{
+  background-color:#c2c2c2;
+  border-color:#c2c2c2;
+  color: #fff;
+}
+
+.btn-primary,.btn-primary:hover{
+  background-color: #1ab394;
+  border-color: #1ab394;
+  color: #fff;
+}
+.bg-info, .btn-info, .btn-info:hover{
+  background-color: #23c6c8 !important;
+  border-color: #23c6c8;
+  color: #fff;
+}
+.bg-warning, .btn-warning,.btn-warning:hover{
+  background-color: #f8ac59 !important;
+  border-color: #f8ac59;
+  color: #fff;
+}
+.bg-danger, .btn-danger,.btn-danger:hover{
+  background-color: #ed5565 !important;
+  border-color: #ed5565;
+  color: #fff;
+}
+.bg-success, .btn-success,.btn-success:hover{
+  background-color: #1c84c6 !important;
+  border-color: #1c84c6;
+  color: #fff;
+}
+
+.bg-navy,.btn-navy:hover{
+  background-color: #1ab394;
+  border-color: #1ab394;
+  color: #fff;
+}
+
+/*== 面包屑 */
+.breadcrumb > li a{
+  color: inherit;
+}
+.breadcrumb > li.active{
+  font-weight: 600;
+}
+
+/*== 表单*/
+.form-control,.form-control:focus, .progress, .progress-bar{
+  box-shadow: none;
+  font-size: 14px;
+  border-color:#e5e6e7;
+}
+.form-control:focus{
+  border-color: #1ab394;
+}
+
+/*== 标签和徽章*/
+.label{
+  font-size: 10px;
+  padding:3px 8px;
+}
+.label-primary, .badge-primary{
+  background-color: #1ab394;
+  color: #fff;
+}
+
+.label-info, .badge-info{
+  background-color: #23c6c8;
+  color: #fff;
+}
+
+.label-danger, .badge-danger{
+  background-color: #ed5565;
+  color: #fff;
+}
+
+.label-success, .badge-success {
+  background-color: #1c84c6;
+  color: #fff;
+}
+
+.label-warning, .badge-warning {
+  background-color: #f8ac59;
+  color: #fff;
+}
+
+
+/*=== 导航*/
+.nav > li > a{
+  color: #a7b1c2;
+  font-weight: 600;
+  display: block;
+}
+.nav > li > a:hover, 
+.nav > li > a:focus{
+  background-color: transparent;
+}
+.nav >li.active{
+  border-left: 4px solid #19aa8d;
+  background-color: #293846;
+}
+.nav >li.active > a{
+  color: #fff;
+}
+.nav>li>a i{
+  margin-right: 6px;
+}
+
+/*== progress */
+.progress-mini{
+  height: 5px;
+}
+.progress-small{
+  margin-top: 5px;
+  height: 10px;
+}
+.progress-bar {
+  box-shadow: none;
+  background-color: #1ab394;
+}
+.progress-bar-danger{
+  background-color: #ed5565;
+}
+
+/*== widget */
+.widget{
+  border-radius: 5px;
+  padding: 15px 20px;
+  margin: 10px 0;
+}
+.widget h2{
+  font-size: 30px;
+}
+
+.widget-head-box{
+  margin-top: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.widget-text-box{
+  background-color: #fff;
+  padding: 20px;
+  border:1px solid #e7eaec;
+}
+
+/*== media */
+.chart-element img{
+  width: 38px;
+}
+.chart-element .media{
+  padding-bottom: 10px;
+}
+
+/*== panel */
+.panel{
+  border-radius: 0;
+}
+.panel-heading{
+  border-radius:0;
+}
+.panel-body{
+  background-color: #fff;
+}
+
+/*== badges */
+.badge-md{
+  padding:6px 14px;
+}
+
+.badge-lg{
+  padding:8px 18px;
+}
+
+/*== page */
+.pagination > li > a,
+.pagination > li > a:hover,
+.pagination > li > a:focus,
+.pagination > li > a:active{
+  display: block;
+  color: inherit;
+}
+
+.pagination > .active>a,
+.pagination > .active>a:hover,
+.pagination > .active>a:focus,
+.pagination > .active>a:active{
+  background-color: #f4f4f4;
+  border-color: #ddd;
+  color: inherit;
+  cursor: default;
+}
+
+/*== table */
+.table-bordered > thead > tr > th{
+  background-color: #F5F5F6;
+}

@@ -1,10 +1,12 @@
-<div id="wrapper">
+<div id="wrapper" class="flex">
   <!--左侧导航-->
-  <nav class="navbar-default navbar-static-side" ng-include="'/router/home/nav.tpl.html'"></nav>
-  <div id="page-wrapper" class="gray-bg">
-
+  <nav class="navbar-default navbar-static-side" 
+       ng-include="'/router/home/nav.tpl.html'">
+  </nav>
+  
+  <div id="page-wrapper" class="gray-bg flex1">
     <!--头部搜索和用户操作-->
-    <div class=" row border-bottom" ng-include="'/router/home/header.tpl.html'"></div>
+    <div class="row border-bottom" ng-include="'/router/home/header.tpl.html'"></div>
 
     <!--面包屑导航-->
     <div class="row border-bottom">

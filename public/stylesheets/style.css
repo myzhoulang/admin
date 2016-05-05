@@ -1,4 +1,15 @@
+@import url('./bootstrap.covered.css');
+@import url('./component.css');
+@import url('./util.css');
+
 /* base */
+body {
+  font-family: "open sans","Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*background-color: #2f4050;*/
+  font-size: 13px;
+  color: #676a6c;
+  overflow-x: hidden;
+}
 h1{
   font-size: 30px;
 }
@@ -26,12 +37,6 @@ img.circle-border{
   border-radius: 50%;
 }
 
-.breadcrumb > li a{
-  color: inherit;
-}
-.breadcrumb > li.active{
-  font-weight: 600;
-}
 .vertical-align div{
   display: inline-block;
   vertical-align: middle;
@@ -43,147 +48,8 @@ img.circle-border{
   background-color: #f3f3f4;
 }
 
-.btn-default,.btn-default:hover{
-  background-color:#c2c2c2;
-  border-color:#c2c2c2;
-  color: #fff;
-}
-.bg-navy,.btn-navy:hover{
-  background-color: #1ab394;
-  border-color: #1ab394;
-  color: #fff;
-}
-
-.btn-primary,.btn-primary:hover{
-  background-color: #1ab394;
-  border-color: #1ab394;
-  color: #fff;
-}
-.bg-info, .btn-info, .btn-info:hover{
-  background-color: #23c6c8 !important;
-  border-color: #23c6c8;
-  color: #fff;
-}
-.bg-warning, .btn-warning,.btn-warning:hover{
-  background-color: #f8ac59 !important;
-  border-color: #f8ac59;
-  color: #fff;
-}
-.bg-danger, .btn-danger,.btn-danger:hover{
-  background-color: #ed5565 !important;
-  border-color: #ed5565;
-  color: #fff;
-}
-.bg-success, .btn-success,.btn-success:hover{
-  background-color: #1c84c6 !important;
-  border-color: #1c84c6;
-  color: #fff;
-}
-
-
-/* === 按钮 */
-.btn-white{
-  color: inherit;
-  background: white;
-  border: 1px solid #e7eaec;
-}
-.btn-white:hover, .btn-white.active{
-  color: inherit;
-  border-color: #d2d2d2;
-}
-.btn-w-m{
-  min-width: 120px;
-}
-
-/*===  3D按钮*/
-.btn-dim{
-  color: #fff;
-  text-decoration: none;
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 20px;
-  border-radius: 5px !important;
-}
-
-.btn-dim.btn-success{
-  box-shadow: inset 0px 0px 0px #1872ab, 0px 5px 0px 0px #1872ab, 0px 10px 5px #999999;
-}
-.btn-dim.btn-info{
-  box-shadow: inset 0px 0px 0px #1eacae, 0px 5px 0px 0px #1eacae, 0px 10px 5px #999999;
-}
-.btn-dim.btn-warning{
-  box-shadow: inset 0px 0px 0px #f79d3c, 0px 5px 0px 0px #f79d3c, 0px 10px 5px #999999;
-}
-.btn-dim.btn-primary{
-  box-shadow: inset 0px 0px 0px #16987e, 0px 5px 0px 0px #16987e, 0px 10px 5px #999999;
-}
-.btn-dim.btn-danger{
-  box-shadow: inset 0px 0px 0px #ea394c, 0px 5px 0px 0px #ea394c, 0px 10px 5px #999999;
-}
-
-.btn-dim-lg{
-  width: 90px;
-  height: 90px;
-  font-size: 42px;
-}
-
-
-
-
-.no-borders{
-  border-top:none !important;
-}
-.text-navy{
-  color: #1ab394;
-}
-.text-muted{
-  color: #888;
-}
-.text-primary{
-  color: inherit;
-}
-.text-success{
-  color:#1c84c6;
-}
-.text-info{
-  color: #23c6c8;
-}
-.text-warning{
-  color: #f8ac59;
-}
-.text-danger{
-  color: #ed5565;
-}
-.no-padding{
-  padding: 0 !important;
-}
-.no-padding .list-group-item{
-  border-left:none;
-  border-right: none;
-  border-bottom: none;
-}
-.no-padding .list-group-item:first-child{
-   border-top: none;
-}
-
-body {
-  font-family: "Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #2f4050;
-  font-size: 13px;
-  color: #676a6c;
-  overflow-x: hidden;
-}
 
 /* 基础样式 */
-.form-control,.form-control:focus, .progress, .progress-bar{
-  box-shadow: none;
-  font-size: 14px;
-  border-color:#e5e6e7;
-}
-.form-control:focus{
-  border-color: #1ab394;
-}
-
 .btn input[type="radio"]{
   position: absolute;
   clip: rect(0,0,0,0);
@@ -219,33 +85,6 @@ a.list-group-item.active,a.list-group-item.active:hover{
   color: #fff;
 }
 
-
-.label-primary, .badge-primary{
-  background-color: #1ab394;
-  color: #fff;
-}
-
-.label-info, .badge-info{
-  background-color: #23c6c8;
-  color: #fff;
-}
-
-.label-danger, .badge-danger{
-  background-color: #ed5565;
-  color: #fff;
-}
-
-.label-success, .badge-success {
-  background-color: #1c84c6;
-  color: #fff;
-}
-
-.label-warning, .badge-warning {
-  background-color: #f8ac59;
-  color: #fff;
-}
-
-
 .navbar-form-custom{
   float: left;
   height: 50px;
@@ -266,13 +105,8 @@ a.list-group-item.active,a.list-group-item.active:hover{
   background-color: transparent;
 }
 
-.label{
-  font-family: 'Verdana';
-  font-size: 10px;
-  padding:3px 8px;
-}
 
-
+/*== 登录*/
 .loginColumns{
   max-width: 800px;
   padding: 100px 20px 20px;
@@ -284,7 +118,7 @@ a.list-group-item.active,a.list-group-item.active:hover{
 .navbar-static-side{
   color: #a7b1c2;
   background-color: #2f4050;
-  position: absolute;
+  /*position: absolute;*/
   width: 240px;
   z-index: 10;
 }
@@ -297,26 +131,7 @@ a.list-group-item.active,a.list-group-item.active:hover{
   width: 60%;
 }
 
-.nav > li > a{
-  color: #a7b1c2;
-  font-weight: bold;
-  display: block;
-}
 
-.nav > li > a:hover, 
-.nav > li > a:focus{
-  background-color: transparent;
-}
-.nav >li.active{
-  border-left: 4px solid #19aa8d;
-  background-color: #293846;
-}
-.nav >li.active > a{
-  color: #fff;
-}
-.nav>li>a i{
-  margin-right: 6px;
-}
 
 .nav-second-level > li >a{
   padding: 7px 10px 7px 42px;
@@ -349,7 +164,7 @@ a.list-group-item.active,a.list-group-item.active:hover{
 
 /* 右侧内容 */
 #page-wrapper{
-  margin-left: 240px;
+  /*margin-left: 240px;*/
   padding:0 15px;
   position: relative;
 }
@@ -385,10 +200,7 @@ a.list-group-item.active,a.list-group-item.active:hover{
   min-height: 50px;
 }
 
-
-
-
-/* ibox */
+/* ibox 通用box*/
 .ibox {
   margin-bottom: 25px;
   margin-top: 0;
@@ -433,56 +245,8 @@ a.list-group-item.active,a.list-group-item.active:hover{
 .ibox-content h4,
 .ibox-content h5{
   margin-top: 5px;
-  font-weight: 300;
+  /*font-weight: 300;*/
 }
-
-
-/* progress */
-.progress-mini{
-  height: 5px;
-}
-.progress-small{
-  margin-top: 5px;
-  height: 10px;
-}
-.progress-bar {
-  box-shadow: none;
-  background-color: #1ab394;
-}
-.progress-bar-danger{
-  background-color: #ed5565;
-}
-
-/* widget */
-.widget{
-  border-radius: 5px;
-  padding: 15px 20px;
-  margin: 10px 0;
-}
-.widget h2{
-  font-size: 30px;
-}
-
-.widget-head-box{
-  margin-top: 10px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-.widget-text-box{
-  background-color: #fff;
-  padding: 20px;
-  border:1px solid #e7eaec;
-}
-
-/* media */
-
-.chart-element img{
-  width: 38px;
-}
-.chart-element .media{
-  padding-bottom: 10px;
-}
-
 
 
 .todo-list{
@@ -540,17 +304,6 @@ a.list-group-item.active,a.list-group-item.active:hover{
   background-position: -168px 0;
 }
 
-/* panel */
-.panel{
-  border-radius: 0;
-}
-.panel-heading{
-  border-radius:0;
-}
-.panel-body{
-  background-color: #fff;
-}
-
 /* nav tabs */
 .tab{
   margin-bottom: 25px;
@@ -573,74 +326,9 @@ a.list-group-item.active,a.list-group-item.active:hover{
   border-top: none;
 }
 
-/* badges */
-.badge-md{
-  padding:6px 14px;
-}
-
-.badge-lg{
-  padding:8px 18px;
-}
-
-/* 页脚 */
-.footer{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-top: 1px solid #e7eaec;
-  background-color: #fff;
-  padding:10px 20px;
-}
 
 
-.font-bold{
-  font-weight: 600;
-}
-.btn,.form-control{
-  border-radius: 0;
-}
-.m-b{
-  margin-bottom: 15px; 
-}
-.m-t{
-  margin-top: 15px;
-}
-.m-l-xs{
-  margin-left: 5px;
-}
-.m-xs{
-  margin: 5px;
-}
-.m-b-xs{
-  margin-bottom: 5px;
-}
-.m-b-md{
-  margin-bottom: 20px;
-}
-.m-b-lg{
-  margin-bottom: 30px;
-}
-.m-t-lg{
-  margin-top: 30px;
-}
-.m-r-xs{
-  margin-right: 5px;
-}
-.p-xl{
-  padding: 40px !important;
-}
-.p-lg{
-  padding: 30px !important;
-}
-.no-margins{
-  margin: 0;
-}
-
-/* table */
-.table-bordered > thead > tr > th{
-  background-color: #F5F5F6;
-}
+/*== table*/
 
 .table .sorting{
   cursor: pointer;
@@ -679,33 +367,11 @@ a.list-group-item.active,a.list-group-item.active:hover{
   background-color: #f7f7f7;
 }
 
-
-
-/* page */
-.pagination > li > a,
-.pagination > li > a:hover,
-.pagination > li > a:focus,
-.pagination > li > a:active{
-  display: block;
-  color: inherit;
-}
-
-.pagination > .active>a,
-.pagination > .active>a:hover,
-.pagination > .active>a:focus,
-.pagination > .active>a:active{
-
-  background-color: #f4f4f4;
-  border-color: #ddd;
-  color: inherit;
-  cursor: default;
-}
-
 .dataTables-pagination ul{
   margin: 2px 0;
 }
 
-/* product */
+/*== product */
 .product-box.active,.product-box:hover{
   border: 1px solid transparent;
   box-shadow: 0 3px 7px 0 #a8a8a8; 
@@ -732,6 +398,30 @@ a.list-group-item.active,a.list-group-item.active:hover{
   font-size: 16px;
   font-weight: 600;
   margin: 2px 0 5px 0; 
+  color: #676a6c;
+}
+
+/* 页脚 */
+.footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #e7eaec;
+  background-color: #fff;
+  padding:10px 20px;
+}
+
+/*== icons */
+.icons-box .infont a{
+  color: #a6a8a9;
+  padding: 10px;
+  /*margin: 1;*/
+  display: block;
+}
+.icons-box .fa{
+  font-size: 25px;
+  display: block;
   color: #676a6c;
 }
 

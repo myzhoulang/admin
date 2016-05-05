@@ -41,4 +41,9 @@ define(['app'], function(app){
 
   }]);
 
+  //icons-ctrl
+  app.registerController('iconsCtrl', ['$scope', function($scope){
+
+  }]);
+
 });

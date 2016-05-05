@@ -12,6 +12,7 @@ require.config({
 		'indexCtrl':'../router/home/indexCtrl',
 		'metricsCtrl':'../router/metrics/metricsCtrl',
 		'widgetsCtrl': '../router/widgets/widgetsCtrl',
+		'otherPagesCtrl':'../router/otherPages/otherPagesCtrl',
 		'uiCtrl': '../router/ui/uiCtrl',
 		'tablesCtrl':'../router/tables/tablesCtrl',
 		'productsCtrl':'../router/products/productsCtrl'

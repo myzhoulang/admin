@@ -44,6 +44,21 @@ define(['angular', '$'], function (angular, $) {
             }]
           }
         })
+        // 404
+        .state('notFound', {
+          url: '/notFound',
+          templateUrl: '/router/otherPages/notFound.tpl.html',
+          controller: 'notFoundCtrl',
+          resolve: {
+            loadCtrl: ['$q', function ($q) {
+              var defer = $q.defer();
+              require(["otherPagesCtrl"], function () {
+                defer.resolve()
+              });
+              return defer.promise;
+            }]
+          }
+        })
         .state('home', {
           abstract: true,
           templateUrl: '/router/home/home.tpl.html',
@@ -101,6 +116,26 @@ define(['angular', '$'], function (angular, $) {
           }
         })
 
+        //Other Pages
+        .state('home.otherPages', {
+          abstract: true,
+          template:'<div ui-view=""></div>',
+          resolve:{
+            loadCtrl: ['$q', function($q){
+              var defer = $q.defer();
+              require(['otherPagesCtrl'], function(){
+                defer.resolve();
+              })
+              return defer.promise;
+            }]
+          }
+        })
+        .state('home.otherPages.searchResult', {
+          url:'/searchResult',
+          controller:'searchResultCtrl',
+          templateUrl:'/router/otherPages/searchResult.tpl.html'
+        })
+
         // UI
         .state('home.ui', {
           abstract: true,
@@ -144,6 +179,11 @@ define(['angular', '$'], function (angular, $) {
           url:'/badgesLabels',
           controller:'badgesLabelsCtrl',
           templateUrl:'/router/ui/badgesLabels.tpl.html'
+        })
+        .state('home.ui.icons', {
+          url:'/icons',
+          controller:'iconsCtrl',
+          templateUrl:'/router/ui/icons.tpl.html'
         })
 
         // tables

@@ -1,0 +1,73 @@
+/*=== 工具CSS */
+.flex{
+  display: flex;
+}
+.flex1{
+  flex:1;
+}
+.no-t-border{
+  border-top:none !important;
+}
+.no-borders{
+  border: none !important;
+}
+.no-padding{
+  padding: 0 !important;
+}
+.no-padding .list-group-item{
+  border-left:none;
+  border-right: none;
+  border-bottom: none;
+}
+.no-padding .list-group-item:first-child{
+   border-top: none;
+}
+
+.font-bold{
+  font-weight: 600;
+}
+.btn,.form-control{
+  border-radius: 0;
+}
+.m-b{
+  margin-bottom: 15px; 
+}
+.m-t{
+  margin-top: 15px;
+}
+.m-t-sm{
+  margin-top: 10px;
+}
+.m-l-xs{
+  margin-left: 5px;
+}
+.m-l-sm{
+  margin-left: 10px;
+}
+.m-xs{
+  margin: 5px;
+}
+.m-b-xs{
+  margin-bottom: 5px;
+}
+.m-b-md{
+  margin-bottom: 20px;
+}
+.m-b-lg{
+  margin-bottom: 30px;
+}
+.m-t-lg{
+  margin-top: 30px;
+}
+.m-r-xs{
+  margin-right: 5px;
+}
+.p-xl{
+  padding: 40px !important;
+}
+.p-lg{
+  padding: 30px !important;
+}
+.no-margins{
+  margin: 0;
+}
