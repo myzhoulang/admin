@@ -66,7 +66,14 @@
   color: #fff;
 }
 
+.bg-white{
+  background-color: #fff;
+}
+
 /*== 面包屑 */
+.breadcrumb{
+  background-color: #fff;
+}
 .breadcrumb > li a{
   color: inherit;
 }
@@ -76,7 +83,7 @@
 
 /*== 表单*/
 .form-control,.form-control:focus, .progress, .progress-bar{
-  box-shadow: none;
+  box-shadow: none !important;
   font-size: 14px;
   border-color:#e5e6e7;
 }

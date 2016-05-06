@@ -75,7 +75,7 @@
 }
 .search-result li{
   list-style: none;
-  padding-bottom: 20px;
+  padding: 20px 0;
   border-bottom: 1px dashed #ccc;
 }
 .search-result .search-result-url{
@@ -83,4 +83,16 @@
 }
 .search-result .search-result-desc{
   margin-top: 5px;
+}
+
+/*== 其他页面*/
+.middle-box{
+  max-width: 400px;
+  z-index: 100;
+  margin:0 auto;
+  padding-top: 40px;
+}
+
+.middle-box h1{
+  font-size: 170px;
 }

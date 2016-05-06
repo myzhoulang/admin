@@ -44,6 +44,24 @@ define(['angular', '$'], function (angular, $) {
             }]
           }
         })
+
+        // 注册
+        .state('register', {
+          url:'/register',
+          templateUrl:'/router/otherPages/register.tpl.html',
+          controller:'registerCtrl',
+          resolve: {
+            loadCtrl: ['$q', function ($q) {
+              var defer = $q.defer();
+              require(["registerCtrl"], function () {
+                defer.resolve()
+              });
+              return defer.promise;
+            }]
+          }
+        })
+
+
         // 404
         .state('notFound', {
           url: '/notFound',
@@ -59,6 +77,32 @@ define(['angular', '$'], function (angular, $) {
             }]
           }
         })
+
+        // 500
+        .state('serverError', {
+          url:'/serverError',
+          templateUrl:'/router/otherPages/serverError.tpl.html'
+        })
+
+        //Forget password
+        .state('forgetPassword', {
+          url:'/forgetPassword',
+          templateUrl:'/router/otherPages/forgetPassword.tpl.html',
+          controller:'forgetPasswordCtrl',
+          resolve:{
+            loadCtrl:['$q', function($q){
+              var defer = $q.defer();
+
+              require(['forgetPasswordCtrl'], function(){
+                defer.resolve();
+              });
+
+              return defer.promise;
+            }]
+          }
+        })
+
+        // home
         .state('home', {
           abstract: true,
           templateUrl: '/router/home/home.tpl.html',
@@ -114,6 +158,27 @@ define(['angular', '$'], function (angular, $) {
               return defer.promise;
             }]
           }
+        })
+
+        //Form
+        .state('home.forms', {
+          absract: true,
+          template:'<div ui-view=""></div>',
+          resolve: {
+            loadCtrl:['$q', function($q){
+              var defer = $q.defer();
+              require(['formsCtrl'], function(){
+                defer.resolve();
+              });
+              return defer.promise;
+            }]
+          }
+        })
+
+        .state('home.forms.basicForm', {
+          url:'/basicForm',
+          controller:'basicFormCtrl',
+          templateUrl:'/router/form/basicForm.tpl.html'
         })
 
         //Other Pages
