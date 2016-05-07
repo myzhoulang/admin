@@ -1,0 +1,111 @@
+<div class="ibox-content">
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="order_id" class="control-label">Order Id</label>
+				<input type="text" id="order_id" name="order_id" class="form-control" placeholder="Order Id"> 
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="order_status" class="control-label">Order Status</label>
+				<input type="text" id="order_status" name="order_status" class="form-control" placeholder="Order Id"> 
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="order_customer" class="control-label">Customer</label>
+				<input type="text" id="order_customer" name="order_customer" class="form-control" placeholder="Customer"> 
+			</div>
+		</div>
+	</div>
+
+	<!-- search Field -->
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="date_added" class="control-label">Date added</label>
+				<input type="text" id="date_added" name="date_added" class="form-control" placeholder="Date added"> 
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="date_modified" class="control-label">Date modified</label>
+				<input type="text" id="date_modified" name="date_modified" class="form-control" placeholder="Date modified"> 
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="Amount" class="control-label">Amount</label>
+				<input type="text" id="Amount" name="Amount" class="form-control" placeholder="Amount"> 
+			</div>
+		</div>
+	</div>	
+
+	<!-- 数据表格 -->
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="ibox">
+				<div class="ibox-content">
+					<table class="footable table table-stripped toggle-arrow-tiny footable-loaded tablet breakpoint">
+						<thead>
+							<tr>
+								<th>Order ID <span class="footable-sort-indicator"></span></th>
+								<th>Customer <span class="footable-sort-indicator"></span></th>
+								<th>Amount <span class="footable-sort-indicator"></span></th>
+								<th>Date added <span class="footable-sort-indicator"></span></th>
+								<th>Status <span class="footable-sort-indicator"></span></th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="footable-even">
+	              <td><span class="footable-toggle"></span> 3214</td>
+	              <td>Customer example</td>
+	              <td>$500.00</td>
+	              <td>03/04/2015</td>
+	              <td><span class="label label-primary">Pending</span></td>
+	              <td>
+	              	<div class="btn-group">
+	              		<a class="btn btn-white btn-xs">View</a>
+	              		<a class="btn btn-white btn-xs">Edit</a>
+	              		<button class="btn btn-white btn-xs">Delete</button>
+	              	</div>
+	              </td>
+	            </tr>
+            <tr>
+              <td colspan="7">
+                <div class="footable-row-detail-inner">
+                  <div class="footable-row-detail-row">
+                    <label class="footable-row-detail-key">Company:</label>
+                    <span class="footable-row-detail-value">Inceptos Hymenaeos Ltd</span>
+                  </div>
+
+                  <div class="footable-row-detail-row">
+                    <label class="footable-row-detail-key">Completed:</label>
+                    <span class="footable-row-detail-value">0.52/1.561</span>
+                  </div>
+
+                  <div class="footable-row-detail-row">
+                    <label class="footable-row-detail-key">Task:</label>
+                    <span class="footable-row-detail-value">20%</span>
+                  </div>
+
+                  <div class="footable-row-detail-row">
+                    <label class="footable-row-detail-key">Date:</label>
+                    <span class="footable-row-detail-value">Jul 14, 2013</span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

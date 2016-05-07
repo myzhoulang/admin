@@ -4,7 +4,7 @@
 
 /* base */
 body {
-  font-family: "open sans","Verdana","微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue","微软雅黑",Arial,Verdana,  Helvetica,  sans-serif;
   /*background-color: #2f4050;*/
   font-size: 13px;
   color: #676a6c;
@@ -267,41 +267,6 @@ a.list-group-item.active,a.list-group-item.active:hover{
 .todo-list > li .label{
   font-size: 12px;
   margin-left: 10px;
-}
-
-
-/* form */
-.icheckbox{
-  position: relative;
-}
-.icheckbox input[type="checkbox"],.icheckbox input[type="radio"]{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  left: 0;
-  top:-4px;
-  opacity: 0;
-}
-.icheckbox_square-green, .iradio_square-green{
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0;
-  padding: 0;
-  width: 22px;
-  height: 22px;
-  border:none;
-  cursor: pointer;
-  background: url('/public/images/green.png') no-repeat;
-}
-.iradio_square-green{
-  background-position: -192px 0; 
-}
-.icheckbox_square-green.checked{
-  background-position: -48px 0;
-}
-.iradio_square-green.checked{
-  background-position: -168px 0;
 }
 
 /* nav tabs */

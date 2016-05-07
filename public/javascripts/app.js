@@ -310,6 +310,11 @@ define(['angular', '$'], function (angular, $) {
           controller:'prodcutCtrl',
           templateUrl:'/router/products/product.tpl.html'
         })
+        .state('home.products.orders', {
+          url:'/orders',
+          controller:'ordersCtrl',
+          templateUrl:'/router/products/orders.tpl.html'
+        })
     }]);
 
   $(document).ready(function () {
