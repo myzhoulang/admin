@@ -28,16 +28,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/users', users);
 
 app.all('/*', function(req, res){
-  // var url = req.url
-  // var oPath = path.parse(req.url);
-  // console.log(req.url)
-  // if(['.js', '.png'].indexOf(oPath.ext) !== -1){
-  //   console.log(1)
-  //   res.sendFile(req.url);
-  // }else{
+  var url = req.url
+  var oPath = path.parse(req.url);
+  console.log(req.url)
+  if(['.js', '.png','.css'].indexOf(oPath.ext) !== -1){
+    console.log(1);
+    next();
+  }else{
 
     res.render('index');
-  // }
+  }
 });
 
 // catch 404 and forward to error handler

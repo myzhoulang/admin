@@ -135,6 +135,7 @@ a.list-group-item.active,a.list-group-item.active:hover{
 
 .nav-second-level > li >a{
   padding: 7px 10px 7px 42px;
+  font-size: 14px;
 }
 .nav-second-level > li.active{
   border: none;

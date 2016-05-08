@@ -12,4 +12,8 @@ define(['app'], function(app){
    app.registerController('prodcutCtrl', ['$scope', function($scope){
 
    }]);
+
+   app.registerController('ordersCtrl', ['$scope', function($scope){
+   	
+   }])
 });

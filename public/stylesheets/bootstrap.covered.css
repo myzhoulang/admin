@@ -125,7 +125,7 @@
 /*=== 导航*/
 .nav > li > a{
   color: #a7b1c2;
-  font-weight: 600;
+  /* font-weight: 600; */
   font-size: 15px;
   display: block;
 }
