@@ -142,3 +142,226 @@
 .middle-box h1{
   font-size: 170px;
 }
+
+/* == pinBoard */
+.notes li{
+  float: left;
+  list-style: none;
+  text-decoration: none;
+  color: #000;
+  margin: 10px 40px 50px 0;
+}
+.notes li .wrap{
+  transform: rotate(6deg); 
+  position: relative;
+  padding: 1em;
+  width: 210px;
+  height: 210px;
+  background: #ffc;
+  box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+}
+.notes li:nth-child(odd) .wrap{
+  transform: rotate(-6deg); 
+}
+.notes li .time{
+  position: absolute;
+  top:5px;
+  right: 5px;
+  font-size: 12px;
+}
+.notes li .title{
+  margin-top: 20px;
+  font-size: 16px;
+  color: #444;
+}
+.notes li .desc{
+  font-size: 12px;
+}
+.notes li .del{
+  position: absolute;
+  bottom:10px;
+  right: 10px;
+  color: inherit;
+}
+
+/* == timeline */
+.vertical-timeline{
+  margin:2em;
+  position: relative;
+  padding: 0;
+}
+.vertical-timeline:before{
+  content: '';
+  left: 50%;
+  width: 4px;
+  margin-left: -2px;
+  position: absolute;
+  height: 100%;
+  background-color: #f1f1f1;
+  top: 0;
+
+}
+.vertical-timeline-block{
+  position: relative;
+  margin: 4em 0;
+}
+
+.vertical-timeline-block:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+.vertical-timeline-icon{
+  position: absolute;
+  top: 0;
+  border-radius: 50%;
+  text-align: center;
+  border:3px solid #f1f1f1;
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  margin-left: -25px;
+  font-size: 19px;
+}
+.vertical-timeline-icon .fa{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.vertical-timeline-content{
+  width: 45%;
+  padding: 1.6em;
+  background: #f5f5f5;
+  position: relative;
+  border-radius: 0.25em;
+}
+.vertical-timeline-content:before{
+  /*border-color: transparent transparent transparent #f5f5f5;
+  top: 24px;
+  left: 100%;*/
+
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 100%;
+  height: 0;
+  width: 0;
+  border:7px solid transparent;
+  border-left: 7px solid #f5f5f5;
+}
+
+.vertical-timeline-block:nth-child(even) .vertical-timeline-content{
+  float: right;
+}
+.vertical-timeline-block:nth-child(even) .vertical-timeline-content .vertical-date{
+  left: auto;
+  right: 122%;
+  text-align: right;
+}
+.vertical-timeline-block:nth-child(even) .vertical-timeline-content:before{
+  right: 100%;
+  left: auto;
+  border-color: transparent #f5f5f5 transparent transparent;
+  // border-right: 7px solid #f5f5f5;
+}
+.vertical-timeline-block:nth-child(even) .vertical-timeline-content .btn{
+  float: right;
+}
+
+
+.vertical-date{
+  float: left;
+  font-weight: 500;
+  position: absolute;
+  width: 100%;
+  left: 122%;
+  top:2px;
+  font-style: 12px
+}
+
+/*== agileBoard */
+.agile-list{
+  padding: 10px 0;
+  list-style: none;
+  margin-left: 0;
+}
+.agile-list li{
+  background-color: #FAFAFB;
+  border:1px solid #e7eaec;
+  margin: 0 0 10px 0;
+  padding: 10px;
+  border-radius: 2px;  
+}
+.agile-list li.success-element{
+  border-left: 4px solid #1ab394;
+}
+.agile-list li.warning-element{
+  border-left: 4px solid #f8ac59;
+}
+.agile-list li.info-element{
+  border-left: 4px solid #1c84c6;
+}
+.agile-list li.danger-element{
+  border-left: 4px solid #ed5565;
+}
+.agile-detail{
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+/* == forum*/
+.forum-container.ibox-content{
+  padding: 30px;
+  color: #999;
+}
+.forum-desc{
+  color: #999;
+}
+.forum-item{
+  padding: 10px 0 20px;
+  margin: 10px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+.forum-icon{
+  float: left;
+  width: 30px;
+  margin-right: 20px;
+  text-align: center;
+}
+.forum-icon .fa{
+  font-size: 30px;
+  margin-top: 8px;
+  color: inherit;
+}
+.forum-item-title{
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: inherit;
+  display: block;
+}
+a.forum-item-title{
+  color: inherit;
+}
+.forum-info {
+  text-align: center;
+}
+.forum-info small{
+  color: #999;
+}
+.views-number{
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.forum-item.active .fa{
+  color: #1ab394;
+}
+.forum-item.active a.forum-item-title{
+  color: #1ab394;
+}
+
+

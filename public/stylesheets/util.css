@@ -26,6 +26,9 @@
   font-size: 160px !important;
   color: #e5e6e7;
 }
+.mid-icon{
+  font-size: 66px;
+}
 
 .font-bold{
   font-weight: 600;
@@ -59,6 +62,9 @@
 }
 .m-lr-xs{
   margin:0 5px;
+}
+.m-r-md{
+  margin-right: 20px;
 }
 .m-b-xs{
   margin-bottom: 5px;

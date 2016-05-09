@@ -181,6 +181,26 @@ define(['angular', '$'], function (angular, $) {
           templateUrl:'/router/form/basicForm.tpl.html'
         })
 
+        // App Views
+        .state('home.AppViews', {
+          absract: true,
+          template:'<div ui-view></div>',
+          resolve:{
+            loadCtrl:['$q', function($q){
+              var defer = $q.defer();
+              require(['AppViewsCtrl'], function(){
+                defer.resolve();
+              })
+              return defer.promise;
+            }]
+          }
+        })
+        .state('home.AppViews.pinBoard', {
+          url:'/pinBoardCtrl',
+          controller:'pinBoardCtrl',
+          templateUrl:'/router/appViews/pinBoard.tpl.html'
+        })
+
         //Other Pages
         .state('home.otherPages', {
           abstract: true,
@@ -199,6 +219,36 @@ define(['angular', '$'], function (angular, $) {
           url:'/searchResult',
           controller:'searchResultCtrl',
           templateUrl:'/router/otherPages/searchResult.tpl.html'
+        })
+
+        //Miscellaneous
+        .state('home.miscellaneous', {
+          abstract: true,
+          template:'<div ui-view=""></div>',
+          resolve:{
+            loadCtrl: ['$q', function($q){
+              var defer = $q.defer();
+              require(['miscellaneousCtrl'], function(){
+                defer.resolve();
+              })
+              return defer.promise;
+            }]
+          }
+        })
+        .state('home.miscellaneous.timeline', {
+          url:'/timeline',
+          controller:'timelineCtrl',
+          templateUrl:'/router/miscellaneous/timeline.tpl.html'
+        })
+        .state('home.miscellaneous.agileBoard', {
+          url:'/agileBoard',
+          controller:'agileBoardCtrl',
+          templateUrl:'/router/miscellaneous/agileBoard.tpl.html'
+        })
+        .state('home.miscellaneous.forum', {
+          url:'/forum',
+          controller:'forumCtrl',
+          templateUrl:'/router/miscellaneous/forum.tpl.html'
         })
 
         // UI
