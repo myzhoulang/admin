@@ -364,4 +364,92 @@ a.forum-item-title{
   color: #1ab394;
 }
 
+/*== 聊天框 */
+.chatViews .ibox-content{
+  border-left-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+}
+.chat-discussion{
+  background: #eee;
+  padding: 15px;
+  height: 400px;
+  overflow-y:auto;
+}
+.chat-message{
+  padding:10px 20px;
+}
+.chat-message .message-date{
+  font-size: 10px;
+  color: #888;
 
+}
+.chat-message .message-avatar{
+  width: 48px;
+  height: 48px;
+  border: 1px solid #e7eaec;
+  border-radius: 4px;
+  margin-top: 1px;
+}
+.chat-message.left .message-avatar{
+  float: left;
+  margin-right: 10px;
+}
+.chat-message.right .message-avatar{
+  float: right;
+  margin-left:10px;
+}
+.chat-message.left .message-date{
+  float: right;
+}
+.chat-message.right .message-author{
+  float: right;
+}
+.message{
+  background: #fff;
+  border:1px solid #e7eaec;
+  padding: 10px 20px;
+  display: block;
+  position: relative;
+  border-radius: 4px;
+}
+.chat-message.left .message{
+  margin-left: 55px;
+  text-align: left;
+}
+.chat-message.right .message{
+  margin-right: 55px;
+}
+
+.chat-users{
+  height: 400px;
+  overflow-y: auto;
+  margin-left: -30px;
+}
+
+@media (max-width: 992px) {
+  .chat-users{
+    margin-left: 0;
+  }
+}
+
+.chat-user{
+  padding: 8px 10px;
+  border-bottom: 1px solid #e7eaec;
+}
+.chat-user:last-child{
+  border-bottom: none;
+}
+.chat-avatar{
+  height: 36px;
+  width: 36px;
+  float: left;
+  margin-right: 10px;
+}
+.chat-user-name{
+  padding: 10px;
+}
+.message-input{
+  height: 90px !important;
+  resize: none;
+}

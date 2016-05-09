@@ -10,4 +10,12 @@ define(['app'], function(app){
   app.registerController('forumCtrl', ['$scope', function($scope){
 
   }]);
+
+  app.registerController('validationCtrl', ['$scope', function($scope){
+
+  }]);
+
+  app.registerController('chatViewCtrl', ['$scope', function($scope){
+
+  }]);
 });

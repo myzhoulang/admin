@@ -250,6 +250,16 @@ define(['angular', '$'], function (angular, $) {
           controller:'forumCtrl',
           templateUrl:'/router/miscellaneous/forum.tpl.html'
         })
+        .state('home.miscellaneous.validation', {
+          url:'/validation',
+          controller:'validationCtrl',
+          templateUrl:'/router/miscellaneous/validation.tpl.html'
+        })
+        .state('home.miscellaneous.chatView', {
+          url:'/chatView',
+          controller:'chatViewCtrl',
+          templateUrl:'/router/miscellaneous/chatView.tpl.html'
+        })
 
         // UI
         .state('home.ui', {
