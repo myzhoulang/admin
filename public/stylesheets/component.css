@@ -310,7 +310,7 @@
   width: 100%;
   left: 122%;
   top: 2px;
-  font-style: 12px
+  font-size: 12px;
 }
 
 /*== agileBoard */
@@ -476,9 +476,7 @@ a.forum-item-title {
   position: absolute;
   width: 10px;
   height: 10px;
-  border-width: 0;
-  border-style: solid;
-  border-color: transparent;
+  border: 0 solid transparent;
   border-bottom-width: 7px;
   border-bottom-color: currentColor;
   color: #FFF;
@@ -712,7 +710,7 @@ a.forum-item-title {
   margin-top: 5px;
   margin-right: 5px;
   background-color: #f3f3f4;
-  font-style: 10px;
+  font-size: 10px;
   border: 1px solid #e7eaec;
   padding: 5px 12px;
   border-radius: 2px;
@@ -757,10 +755,9 @@ a.forum-item-title {
   display: inline-block;
   width: 0;
   height: 0;
-  list-style: 0;
   border:0.6em solid transparent;
-  border-right:0.6em solie #f1f1f1;
-  border-bottom:0.6em solie #f1f1f1;
+  border-right:0.6em solid #f1f1f1;
+  border-bottom:0.6em solid #f1f1f1;
   right: 0;
   bottom: 0;
 }
@@ -794,4 +791,10 @@ a.forum-item-title {
   width: 32px;
   height: 32px;
 }
+
+/* == video */
+#video{
+  height: 570px;
+}
+
 

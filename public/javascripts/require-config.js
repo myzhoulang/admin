@@ -7,6 +7,7 @@ require.config({
 		'angular-ui-router':'vendor/angular-ui-router',
 		'bootstrap':'./bootstrap',
 		'app':'./app',
+		'directive':'./directive/directive',
 		'loginCtrl': '../router/login/loginCtrl',
 		'registerCtrl':'../router/otherPages/registerCtrl',
 		'homeCtrl':'../router/home/homeCtrl',
@@ -20,7 +21,8 @@ require.config({
 		'forgetPasswordCtrl':'../router/otherPages/forgetPasswordCtrl',
 		'uiCtrl': '../router/ui/uiCtrl',
 		'tablesCtrl':'../router/tables/tablesCtrl',
-		'productsCtrl':'../router/products/productsCtrl'
+		'productsCtrl':'../router/products/productsCtrl',
+		'dropzone':'./dropzone'
 	},
 	shim:{
 		'$':{
@@ -37,8 +39,12 @@ require.config({
 		},
 		'angular-ui-router':{
 			deps:['angular-route']
+		},
+		'dropzone':{
+			deps:['$'],
+			exports:'dropzone'
 		}
 	},
 
-	deps: ['./bootstrap']
+	deps: ['app']
 });

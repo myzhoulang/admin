@@ -14,8 +14,9 @@ define(['angular', '$'], function (angular, $) {
     }]);
 
   // 将 controllerProvider 挂载到app 上
-  app.config(['$controllerProvider', function ($controllerProvider) {
+  app.config(['$controllerProvider', '$compileProvider', function ($controllerProvider, $compileProvider) {
     app.registerController = $controllerProvider.register;
+    app.directiveProvider = $compileProvider.directive;
   }]);
 
   // 配置路由
@@ -174,11 +175,15 @@ define(['angular', '$'], function (angular, $) {
             }]
           }
         })
-
         .state('home.forms.basicForm', {
           url:'/basicForm',
           controller:'basicFormCtrl',
           templateUrl:'/router/form/basicForm.tpl.html'
+        })
+        .state('home.forms.fileUpload', {
+          url:'/fileUpload',
+          controller:'fileUploadCtrl',
+          templateUrl:'/router/form/fileUpload.tpl.html'
         })
 
         // App Views
@@ -339,6 +344,11 @@ define(['angular', '$'], function (angular, $) {
           url:'/tabs',
           controller:'tabsCtrl',
           templateUrl:'/router/ui/tabs.tpl.html'
+        })
+        .state('home.ui.video', {
+          url:'/video',
+          controller:'videoCtrl',
+          templateUrl:'/router/ui/video.tpl.html'
         })
         .state('home.ui.notifs', {
           url:'/notifs',

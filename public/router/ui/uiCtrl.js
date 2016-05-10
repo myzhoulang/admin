@@ -32,6 +32,11 @@ define(['app'], function(app){
 
   }]);
 
+  // videoCtrl
+  app.registerController('videoCtrl', ['$scope', function($scope){
+
+  }]);
+
   // notifs-ctrl
   app.registerController('notifsCtrl', ['$scope', function($scope){
 
