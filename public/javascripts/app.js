@@ -195,10 +195,55 @@ define(['angular', '$'], function (angular, $) {
             }]
           }
         })
+        .state('home.AppViews.contacts', {
+          url:'/contacts',
+          controller:'contactsCtrl',
+          templateUrl:'/router/appViews/contacts.tpl.html'
+        })
+        .state('home.AppViews.faq', {
+          url:'/faq',
+          controller:'faqCtrl',
+          templateUrl:'/router/appViews/faq.tpl.html'
+        })
+        .state('home.AppViews.projects', {
+          url:'/projects',
+          controller:'projectsCtrl',
+          templateUrl:'/router/appViews/projects.tpl.html'
+        })
+        .state('home.AppViews.teamsBoard', {
+          url:'/teamsBoard',
+          controller:'teamsBoardCtrl',
+          templateUrl:'/router/appViews/teamsBoard.tpl.html'
+        })
         .state('home.AppViews.pinBoard', {
-          url:'/pinBoardCtrl',
+          url:'/pinBoard',
           controller:'pinBoardCtrl',
           templateUrl:'/router/appViews/pinBoard.tpl.html'
+        })
+        .state('home.AppViews.blog', {
+          url:'/blog',
+          controller:'blogCtrl',
+          templateUrl:'/router/appViews/blog.tpl.html'
+        })
+        .state('home.AppViews.socialFeed', {
+          url:'/socialFeed',
+          controller:'socialFeedCtrl',
+          templateUrl:'/router/appViews/socialFeed.tpl.html'
+        })
+        .state('home.AppViews.fileManager', {
+          url:'/fileManager',
+          controller:'fileManagerCtrl',
+          templateUrl:'/router/appViews/fileManager.tpl.html'
+        })
+        .state('home.AppViews.issueList', {
+          url:'/issueList',
+          controller:'issueListCtrl',
+          templateUrl:'/router/appViews/issueList.tpl.html'
+        })
+        .state('home.AppViews.article', {
+          url:'/article/:id',
+          controller:'articleCtrl',
+          templateUrl:'/router/appViews/article.tpl.html'
         })
 
         //Other Pages

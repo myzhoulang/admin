@@ -150,6 +150,7 @@
 
 /*== progress */
 .progress-mini{
+  margin-top: 5px;
   height: 5px;
 }
 .progress-small{

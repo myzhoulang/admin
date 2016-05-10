@@ -30,6 +30,9 @@ h3, h4, h5 {
 h3{
   font-size: 16px;
 }
+h5{
+  font-size: 12px;
+}
 a:focus{
   outline: none;
 }
@@ -57,6 +60,17 @@ a:hover,a:focus{
 .btn input[type="radio"]{
   position: absolute;
   clip: rect(0,0,0,0);
+}
+.btn-link{
+  color: inherit;
+}
+.btn-link:hover, 
+.btn-link:focus, 
+.btn-link:active, 
+.btn-link.active, 
+.open .dropdown-toggle.btn-link {
+  color: #1ab394;
+  text-decoration: none;
 }
 
 
@@ -226,7 +240,10 @@ a.list-group-item.active,a.list-group-item.active:hover{
   margin: 0;
   font-size: 14px;
   text-overflow:ellipsis;
+  font-weight: 600;
 }
+
+
 .ibox-tools{
   float: right;
 }
@@ -235,7 +252,17 @@ a.list-group-item.active,a.list-group-item.active:hover{
   margin-left: 5px;
   cursor: pointer;
 }
+.ibox-tools a.btn-primary{
+  color: #fff;
+}
 
+@media (max-width: 768px){
+  .ibox-tools {
+    float: none;
+    text-align: right;
+    display: block;
+  }
+}
 .ibox-content{
   background-color: #fff;
   color: inherit;
