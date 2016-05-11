@@ -14,9 +14,12 @@ define(['angular', '$'], function (angular, $) {
     }]);
 
   // 将 controllerProvider 挂载到app 上
-  app.config(['$controllerProvider', '$compileProvider', function ($controllerProvider, $compileProvider) {
-    app.registerController = $controllerProvider.register;
-    app.directiveProvider = $compileProvider.directive;
+  app.config(['$controllerProvider', '$compileProvider', '$provide',
+    function ($controllerProvider, $compileProvider, $provide) {
+      console.log($provide)
+      app.registerController = $controllerProvider.register;
+      app.directiveProvider = $compileProvider.directive;
+      app.serviceProvider = $provide.service;
   }]);
 
   // 配置路由

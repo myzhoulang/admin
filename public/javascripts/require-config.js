@@ -8,6 +8,7 @@ require.config({
 		'bootstrap':'./bootstrap',
 		'app':'./app',
 		'directive':'./directive/directive',
+		'service':'./service/service',
 		'loginCtrl': '../router/login/loginCtrl',
 		'registerCtrl':'../router/otherPages/registerCtrl',
 		'homeCtrl':'../router/home/homeCtrl',

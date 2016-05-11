@@ -5,6 +5,7 @@ define(['require-config'], function(){
     'angular-route',
     'angular-ui-router',
     'app',
-    'directive'
+    'directive',
+    'service'
   ])
 });

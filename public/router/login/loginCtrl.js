@@ -1,8 +1,9 @@
 define(['app'], function(app){
   console.log(app)
-  app.registerController('loginCtrl', ['$scope', '$state', function($scope, $state){
+  app.registerController('loginCtrl', ['$scope', '$state', 'login', function($scope, $state, login){
     angular.extend($scope, {
-      login: function(){
+      login: function(data){
+        login.login(data)
         $state.go('home.index')
       }
     })
