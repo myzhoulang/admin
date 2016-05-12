@@ -34,6 +34,10 @@ var objectId = Schema.Types.ObjectId;
     insDate:{
       type: Date,
       default: Date.now()
+    },
+    offset: {
+      type:Number,
+      default:new Date().getTimezoneOffset()
     }
 
   });

@@ -7,7 +7,7 @@ exports.register = function(req, res){
   console.log(req.body)
   var body = req.body;
   var oDate = new Date();
-  console.log(mongoose.model)
+  // console.log(mongoose.model)
   var User = mongoose.model('User');
 
   var year = oDate.getFullYear();
@@ -21,28 +21,40 @@ exports.register = function(req, res){
   var user = new User({
     name: body.name,
     email: body.email,
-    password: body.password,
-    insDate:Date.now()
+    password: body.password
   });
-  console.log(488)
-  user.save(function(err){
-    console.log(Date.now())
-    console.log(err);
-    if(err){
-      res.json({
-        status: 500,
-        message:err.message
-      })
-    }else{
-      res.json({
-        user: {
-          insDate: user.insDate,
-          name: user.name,
-          email: user.email,
-          _id: user._id
-        },
-        status: 200
-      })
-    }
-  })
+
+  var u = User.findOne({},function(err,person){
+      //如果err==null，则person就能取到数据
+      console.log(new Date(person.insDate.getTime()).toLocaleString())
+      // console.log(new Date(person.insDate.getTime() -  ( person.offset * 60000 )));
+    });
+  // console.log(new Date(u.insDate.getTime() -  ( u.offset * 60000 )));
+
+  // console.log(488)
+  // user.save(function(err){
+  //   console.log(Date.now())
+  //   console.log(err);
+  //   var date = new Date();
+  //   console.log(date.getTimezoneOffset())
+
+
+  //   if(err){
+  //     res.json({
+  //       status: 500,
+  //       message:err.message
+  //     })
+  //   }else{
+  //     res.json({
+  //       user: {
+  //         name: user.name,
+  //         email: user.email,
+  //         _id: user._id
+  //       },
+  //       status: 200
+  //     })
+  //   }
+  // });
+
+
 }

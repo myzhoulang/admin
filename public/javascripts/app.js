@@ -188,6 +188,11 @@ define(['angular', '$'], function (angular, $) {
           controller:'fileUploadCtrl',
           templateUrl:'/router/form/fileUpload.tpl.html'
         })
+        .state('home.forms.textEditor', {
+          url:'/textEditor',
+          controller:'textEditorCtrl',
+          templateUrl:'/router/form/textEditor.tpl.html'
+        })
 
         // App Views
         .state('home.AppViews', {
@@ -348,8 +353,8 @@ define(['angular', '$'], function (angular, $) {
           controller:'tabsCtrl',
           templateUrl:'/router/ui/tabs.tpl.html'
         })
-        .state('home.ui.video', {
-          url:'/video',
+        .state('home.ui.ship', {
+          url:'/ship',
           controller:'videoCtrl',
           templateUrl:'/router/ui/video.tpl.html'
         })

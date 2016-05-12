@@ -1,11 +1,13 @@
 require.config({
 	baseUrl: "/javascripts/",
+
 	paths: {
 		'$': 'vendor/jquery',
 		'angular':'vendor/angular',
 		'angular-route':'vendor/angular-route',
 		'angular-ui-router':'vendor/angular-ui-router',
 		'bootstrap':'./bootstrap',
+		'bootstrapjs':'vendor/bootstrap.min',
 		'app':'./app',
 		'directive':'./directive/directive',
 		'service':'./service/service',
@@ -23,11 +25,28 @@ require.config({
 		'uiCtrl': '../router/ui/uiCtrl',
 		'tablesCtrl':'../router/tables/tablesCtrl',
 		'productsCtrl':'../router/products/productsCtrl',
-		'dropzone':'./dropzone'
+		'dropzone':'./dropzone',
+
+		// video
+		// 'video':'video.min',
+
+		// summernote
+		// 'summernote-css':'../plugin/summernote/summernote.css',
+		'summernote-js':'../plugin/summernote/summernote',
+	},
+
+	map:{
+		'*': {
+			'css':'require/css'
+		}
 	},
 	shim:{
 		'$':{
 			exports:'$'
+		},
+		'bootstrapjs':{
+			deps:['$'],
+			exports:'bootstrapjs'
 		},
 		'angular': {
 			exports:'angular'
@@ -44,6 +63,13 @@ require.config({
 		'dropzone':{
 			deps:['$'],
 			exports:'dropzone'
+		},
+		// 'video':{
+		// 	exports:'video'
+		// },
+		'summernote-js':{
+			deps:['$','bootstrapjs'],
+			exports:'summernote-js'
 		}
 	},
 

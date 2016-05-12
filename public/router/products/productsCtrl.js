@@ -1,4 +1,4 @@
-define(['app'], function(app){
+define(['app', 'summernote-js'], function(app){
   app.registerController('productsGridCtrl', ['$scope', function($scope){
     angular.extend($scope, {
 

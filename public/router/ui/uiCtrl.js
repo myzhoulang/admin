@@ -1,10 +1,10 @@
 /**
  * Created by mk on 2016/3/20.
  */
-define(['app'], function(app){
+define(['$','app'], function($, app){
   // ui-ctrl
   app.registerController('uiCtrl', ['$scope', function($scope){
-
+    
   }]);
 
   // Widgets-ctrl
@@ -35,6 +35,7 @@ define(['app'], function(app){
   // videoCtrl
   app.registerController('videoCtrl', ['$scope', function($scope){
 
+    
   }]);
 
   // notifs-ctrl
