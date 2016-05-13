@@ -3,7 +3,6 @@
  */
 
 define(['app'], function(app){
-
   // register
   app.registerController('registerCtrl', ['$scope', 'register', function($scope, register){
     angular.extend($scope, {
