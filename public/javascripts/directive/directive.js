@@ -229,16 +229,22 @@ define(['$', 'app'], function($, app){
           console.log('Good to go!');
 
           oVideoWrap = $(element).find('.video-js');
-          // console.log(parent.width())
           oVideoWrap.css({
             width: '100%',
-            heigt: parent.width()
+            height: parent.width()*0.5
           })
           // this.play(); // if you don't trust autoplay for some reason
           // How about an event listener?
           this.on('ended', function() {
             console.log('awww...over so soon?');
           });
+        });
+
+        $(window).resize(function(){
+          oVideoWrap.css({
+            width: '100%',
+            height: parent.width()*0.5
+          })
         });
       }
     }
