@@ -1,41 +1,52 @@
 <div class="middle-box text-center">
 	<div>
 		<h1 class="logo-name">A+</h1>
-		<h3>Register to A+</h3>
-		<p>Create account to see it in action.</p>
+		<h3>注册 A+ 帐号</h3>
+		<p>创建一个A+用户</p>
 
 		<form class="m-t" name="registerForm" ng-submit="register(f)">
 			<div class="form-group">
-				<input type="text" name="name" ng-model="f.name" class="form-control" placeholder="Name"/>
+				<input type="text" name="name" ng-model="f.name" class="form-control" placeholder="姓名"/>
+				<p class="help-block"></p>
+			</div>
+
+			<div class="form-group" ng-class="{'has-error': registerForm.email.$valid && registerForm.$submitted}">
+				<input type="email" name="email" ng-model="f.email" class="form-control" placeholder="Email" required />
+
+				<p class="help-block text"></p>
+				<p class="help-block text-left" ng-show="registerForm.email.$valid && registerForm.$submitted">密码格式不正确</p>
 			</div>
 
 			<div class="form-group">
-				<input type="email" name="email" ng-model="f.email" class="form-control" placeholder="Email"/>
+				<input type="password" name="password" ng-model="f.password" class="form-control" placeholder="密码"/>
+				<p class="help-block text-left">密码格式不正确</p>
 			</div>
 
 			<div class="form-group">
-				<input type="password" name="password" ng-model="f.password" class="form-control" placeholder="Password"/>
-			</div>
-
-			<div class="form-group">
-				<input type="password" class="form-control" placeholder="Password Confirm"/>
+				<input type="password" class="form-control" placeholder="密码确认"/>
+				<p class="help-block">Email 邮件格式不正确！</p>
 			</div>
 
 			<div class="form-group">
 				<!--todo-->
 				<div class="checkbox">
 					<label>
-						<input type="checkbox"/>
-						Agree the terms and policy
+						<input type="checkbox" ng-model="isAgree"/>
+						<a href="#" class="text-muted">同意条款和政策</a>
 					</label>
 				</div>
 			</div>
 
-			<button type="submit" class="btn btn-primary btn-block">Register</button>
+			<pre>
+				{{registerForm.email}}
+				{{registerForm.$submitted}}
+			</pre>
 
-			<p class="text-muted text-center m-t-sm">Already have an account?</p>
+			<button type="submit" class="btn btn-primary btn-block">注册</button>
 
-			<a ui-sref="login" class="btn btn-primary btn-block">Login</a>
+			<p class="text-muted text-center m-t-sm">已经有一个账户了？</p>
+
+			<a ui-sref="login" class="btn btn-primary btn-block">登录</a>
 		</form>
 	</div>
 </div>

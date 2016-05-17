@@ -1,22 +1,15 @@
 /**
  * Created by mk on 2016/5/11.
  */
-var mongoose = require('mongoose');
+
 var Schema = require('./Schema')
+var Q = require('q')
+var mongo = require('./mongo')
+var mongoose = mongo.mongoose
+
 exports.register = function(req, res){
-  console.log(req.body)
-  var body = req.body;
-  var oDate = new Date();
-  // console.log(mongoose.model)
-  var User = mongoose.model('User');
-
-  var year = oDate.getFullYear();
-  var month = (oDate.getMonth() + 1);
-  var date = oDate.getDate();
-  var hours = oDate.getHours();
-  var mins = oDate.getMinutes();
-  var sec = oDate.getSeconds();
-
+  var body = req.body
+  var User = mongoose.model('User')
 
   var user = new User({
     name: body.name,
@@ -24,37 +17,42 @@ exports.register = function(req, res){
     password: body.password
   });
 
-  var u = User.findOne({},function(err,person){
-      //如果err==null，则person就能取到数据
-      console.log(new Date(person.insDate.getTime()).toLocaleString())
-      // console.log(new Date(person.insDate.getTime() -  ( person.offset * 60000 )));
-    });
-  // console.log(new Date(u.insDate.getTime() -  ( u.offset * 60000 )));
+  //查找
+  User.findOne({
+    email: body.email
+  },function(err,person){
+    if(err){
+      res.json({
+        status: 500,
+        message: err.message
+      })
 
-  // console.log(488)
-  // user.save(function(err){
-  //   console.log(Date.now())
-  //   console.log(err);
-  //   var date = new Date();
-  //   console.log(date.getTimezoneOffset())
-
-
-  //   if(err){
-  //     res.json({
-  //       status: 500,
-  //       message:err.message
-  //     })
-  //   }else{
-  //     res.json({
-  //       user: {
-  //         name: user.name,
-  //         email: user.email,
-  //         _id: user._id
-  //       },
-  //       status: 200
-  //     })
-  //   }
-  // });
-
-
+    }else{
+      if(person){
+        res.json({
+          status: -1,
+          message: '该账户已存在'
+        });
+      }else{
+        user.save(function(err){
+          var date = new Date();
+          if(err){
+            res.json({
+              status: 500,
+              message:err.message
+            })
+          }else{
+            res.json({
+              user: {
+                name: user.name,
+                email: user.email,
+                _id: user._id
+              },
+              status: 200
+            })
+          }
+        });
+      }
+    }
+  });
 }

@@ -2,10 +2,10 @@
  * Created by mk on 2016/5/11.
  */
 
-//”√ªß
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var objectId = Schema.Types.ObjectId;
+//
+var mongoose = require('./mongo').mongoose
+var Schema = mongoose.Schema
+var objectId = Schema.Types.ObjectId
 //exports.Schema = function(){
   var Users = new Schema({
     name:{

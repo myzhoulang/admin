@@ -6,15 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var util = require('util');
 
-var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://127.0.0.1:27017/jd');
-
+// mongo 
+var mongo = require('./routes/mongo')
+mongo.connectionMongo()
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var upload = require('./routes/upload');
 
-// ×¢²áÄ£¿é
 var register = require('./routes/register');
 
 var app = express();
@@ -48,10 +47,10 @@ app.get('*', function(req, res){
   }
 });
 
-// ÉÏ´«Í¼Æ¬
+//
 app.post('/api/upload', upload.uploadFile);
 
-//×¢²á
+//
 app.post('/api/register', register.register);
 
 
