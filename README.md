@@ -8,7 +8,7 @@
 
 ## REST
 * 全称：REST -- Resource Representational State Transfer （资源在网络中以某种表现形式进行状态转移）
->  **说人话：URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。**
+>  **说人话：URL定位资源，用HTTP动词（GET,POST,DELETE,PUT, PATCH）描述操作。**
 
     * Resource： 资源 比如products, orders....
     * Representational: 某种表现形式，比如用JSON，XML
