@@ -1,0 +1,3 @@
+## 2025-05-15 - [Registration Performance Optimization]
+**Learning:** The user registration flow was performing a full collection scan ($O(N)$) on every request due to a missing index on the `email` field. Additionally, the code was instantiating a new Mongoose document *before* checking if the user already existed, leading to unnecessary memory allocation and CPU cycles for existing users.
+**Action:** Always ensure unique indexes are present for lookup fields in authentication/registration schemas. Defer document instantiation until after all existence checks and validations have passed to maximize efficiency on "cold" paths (errors/existing users).

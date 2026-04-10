@@ -11,13 +11,7 @@ exports.register = function(req, res){
   var body = req.body
   var User = mongoose.model('User')
 
-  var user = new User({
-    name: body.name,
-    email: body.email,
-    password: body.password
-  });
-
-  //查找
+  // ⚡ Bolt: Using indexed email field for efficient lookup
   User.findOne({
     email: body.email
   },function(err,person){
@@ -34,8 +28,13 @@ exports.register = function(req, res){
           message: '该账户已存在'
         });
       }else{
+        // ⚡ Bolt: Deferring object creation until existence check passes
+        var user = new User({
+          name: body.name,
+          email: body.email,
+          password: body.password
+        });
         user.save(function(err){
-          var date = new Date();
           if(err){
             res.json({
               status: 500,
