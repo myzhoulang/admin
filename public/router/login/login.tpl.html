@@ -11,15 +11,17 @@
     <!--表单-->
     <div class="col-md-6">
       <div>
-        <form action="">
+        <form ng-submit="login()">
           <div class="form-group">
-              <input type="email" class="form-control" placeholder="Username" required="">
+              <label for="username" class="sr-only">Username</label>
+              <input type="email" id="username" class="form-control" placeholder="Username" required="">
           </div>
           <div class="form-group">
-              <input type="password" class="form-control" placeholder="password" required="">
+              <label for="password" class="sr-only">Password</label>
+              <input type="password" id="password" class="form-control" placeholder="password" required="">
           </div>
           
-          <button type="button" ng-click="login()" class="btn btn-success btn-block m-b">Login</button>
+          <button type="submit" class="btn btn-success btn-block m-b">Login</button>
           
           <a href="#">
             <small>Forgot password?</small>
