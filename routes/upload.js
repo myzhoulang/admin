@@ -9,7 +9,7 @@ var formidable = require('formidable'),
 
 
 exports.uploadFile = function(req, res) {
-  console.log(req);
+  // Optimization: Removed console.log(req) as it's a synchronous, expensive operation that prints a massive object to the console.
 
   //
   var form = new formidable.IncomingForm();
