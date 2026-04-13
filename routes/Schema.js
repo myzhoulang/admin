@@ -18,7 +18,9 @@ var objectId = Schema.Types.ObjectId
     },
     email:{
       type: String,
-      required: true
+      required: true,
+      // ⚡ Bolt: Adding unique index for O(log N) lookup performance during registration
+      unique: true
     },
     sex:{
       type: Number
@@ -33,7 +35,8 @@ var objectId = Schema.Types.ObjectId
     },
     insDate:{
       type: Date,
-      default: Date.now()
+      // ⚡ Bolt: Corrected to function reference to ensure unique timestamps per document
+      default: Date.now
     },
     offset: {
       type:Number,

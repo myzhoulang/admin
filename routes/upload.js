@@ -9,7 +9,7 @@ var formidable = require('formidable'),
 
 
 exports.uploadFile = function(req, res) {
-  console.log(req);
+  // ⚡ Bolt: Removed console.log(req) which blocks the event loop with large objects
 
   //
   var form = new formidable.IncomingForm();
