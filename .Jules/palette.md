@@ -1,0 +1,3 @@
+## 2026-04-13 - [Accessibility Verification and Locking dependencies]
+**Learning:** When verifying AngularJS templates (.tpl.html) using Playwright without a running backend, it's crucial to create a full HTML wrapper that includes the project's CSS (like Bootstrap). Otherwise, utility classes like `.sr-only` won't be applied, leading to misleading visual verification results. Also, `pnpm install` in some environments might generate a `pnpm-lock.yaml` which should not be committed if the project doesn't already have one and the task is micro-UX.
+**Action:** Always wrap snippets in a proper HTML boilerplate with linked stylesheets for `playwright` screenshots, and double check for unintended file creations like lockfiles before submitting.
