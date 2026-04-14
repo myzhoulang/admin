@@ -4,27 +4,30 @@
 		<h3>注册 A+ 帐号</h3>
 		<p>创建一个A+用户</p>
 
-		<form class="m-t" name="registerForm" ng-submit="register(f)">
-			<div class="form-group">
-				<input type="text" name="name" ng-model="f.name" class="form-control" placeholder="姓名"/>
-				<p class="help-block"></p>
+		<form class="m-t" name="registerForm" ng-submit="register(f)" novalidate>
+			<div class="form-group" ng-class="{'has-error': registerForm.name.$invalid && registerForm.$submitted}">
+				<label class="sr-only" for="reg-name">姓名</label>
+				<input type="text" id="reg-name" name="name" ng-model="f.name" class="form-control" placeholder="姓名" required/>
+				<p class="help-block text-left" ng-show="registerForm.name.$invalid && registerForm.$submitted">请输入姓名</p>
 			</div>
 
-			<div class="form-group" ng-class="{'has-error': registerForm.email.$valid && registerForm.$submitted}">
-				<input type="email" name="email" ng-model="f.email" class="form-control" placeholder="Email" required />
+			<div class="form-group" ng-class="{'has-error': registerForm.email.$invalid && registerForm.$submitted}">
+				<label class="sr-only" for="reg-email">Email</label>
+				<input type="email" id="reg-email" name="email" ng-model="f.email" class="form-control" placeholder="Email" required />
 
-				<p class="help-block text"></p>
-				<p class="help-block text-left" ng-show="registerForm.email.$valid && registerForm.$submitted">密码格式不正确</p>
+				<p class="help-block text-left" ng-show="registerForm.email.$invalid && registerForm.$submitted">Email 格式不正确</p>
 			</div>
 
-			<div class="form-group">
-				<input type="password" name="password" ng-model="f.password" class="form-control" placeholder="密码"/>
-				<p class="help-block text-left">密码格式不正确</p>
+			<div class="form-group" ng-class="{'has-error': registerForm.password.$invalid && registerForm.$submitted}">
+				<label class="sr-only" for="reg-password">密码</label>
+				<input type="password" id="reg-password" name="password" ng-model="f.password" class="form-control" placeholder="密码" required/>
+				<p class="help-block text-left" ng-show="registerForm.password.$invalid && registerForm.$submitted">请输入密码</p>
 			</div>
 
-			<div class="form-group">
-				<input type="password" class="form-control" placeholder="密码确认"/>
-				<p class="help-block">Email 邮件格式不正确！</p>
+			<div class="form-group" ng-class="{'has-error': f.password !== f.confirmPassword && registerForm.$submitted}">
+				<label class="sr-only" for="reg-confirm">密码确认</label>
+				<input type="password" id="reg-confirm" name="confirmPassword" ng-model="f.confirmPassword" class="form-control" placeholder="密码确认" required/>
+				<p class="help-block text-left" ng-show="f.password !== f.confirmPassword && registerForm.$submitted">两次输入的密码不一致</p>
 			</div>
 
 			<div class="form-group">
@@ -37,10 +40,6 @@
 				</div>
 			</div>
 
-			<pre>
-				{{registerForm.email}}
-				{{registerForm.$submitted}}
-			</pre>
 
 			<button type="submit" class="btn btn-primary btn-block">注册</button>
 
