@@ -1,10 +1,11 @@
 <nav class="navbar navbar-static-top" style="margin-bottom:0">
   <div class="navbar-header">
-    <a href="" class="navbar-minimalize minimalize-styl-2 btn btn-primary ">
-      <i class="fa fa-bars"></i>
+    <a href="" class="navbar-minimalize minimalize-styl-2 btn btn-primary " aria-label="Toggle Navigation">
+      <i class="fa fa-bars" aria-hidden="true"></i>
     </a>
-    <form action="" class="navbar-form-custom">
+    <form action="" class="navbar-form-custom" role="search">
       <div class="form-group">
+        <label for="top-search" class="sr-only">Search</label>
         <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
       </div>
     </form>
@@ -12,8 +13,8 @@
   <ul class="nav navbar-top-links navbar-right">
       <li><span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span></li>
       <li class="dropdown">
-        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#" aria-expanded="true">
-          <i class="fa fa-envelope"></i>  
+        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#" aria-expanded="true" aria-label="Messages">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
           <span class="label label-warning">16</span>
         </a>
         
@@ -68,8 +69,8 @@
       </li>
       
       <li class="dropdown">
-        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#" aria-expanded="true">
-          <i class="fa fa-envelope"></i>  
+        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#" aria-expanded="true" aria-label="Alerts">
+          <i class="fa fa-bell" aria-hidden="true"></i>
           <span class="label label-warning">16</span>
         </a>
         
@@ -123,8 +124,8 @@
       </ul>
       </li>
       
-      <li><a href=""><i class="fa fa-sign-out"></i>Log out</a></li>
+      <li><a href=""><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</a></li>
       
-      <li><a href="" class="right-sidebar-toggle"><i clfa fa-tasks></i></a></li>
+      <li><a href="" class="right-sidebar-toggle" aria-label="Tasks"><i class="fa fa-tasks" aria-hidden="true"></i></a></li>
     </ul>
 </nav>

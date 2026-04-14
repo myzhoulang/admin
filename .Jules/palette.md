@@ -1,0 +1,3 @@
+## 2025-05-14 - Navigation Accessibility and Form Validation Patterns
+**Learning:** Navigation headers in this theme (Inspinia-based) frequently use icon-only elements that lack ARIA labels and contain decorative icons that aren't hidden from screen readers. Additionally, legacy AngularJS templates may contain placeholder validation logic that displays incorrect messages (e.g., email errors on password fields).
+**Action:** Always audit header/sidebar components for icon-only interactive elements to add `aria-label`. When working with forms, verify that `ng-show` logic uses `$invalid` for error states and that `help-block` messages match the input's purpose.
