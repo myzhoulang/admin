@@ -1,0 +1,3 @@
+## 2026-04-16 - Standardized Form Submission and Accessibility in AngularJS 1.x
+**Learning:** For legacy AngularJS 1.x applications using Bootstrap, accessibility and keyboard usability can be significantly improved by wrapping inputs in a proper `<form>` with `ng-submit`, using `type="submit"` on the primary button, and adding `<label class="sr-only">`. Binding inputs to a data object like `f` (e.g., `ng-model="f.email"`) and passing it to the handler (e.g., `ng-submit="login(f)"`) is a clean, reusable pattern.
+**Action:** Always check for `ng-click` on buttons that should be `type="submit"` within a form, and ensure `id`/`for` label associations are present even if visually hidden.
