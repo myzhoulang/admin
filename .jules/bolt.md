@@ -1,0 +1,3 @@
+## 2025-05-14 - Mongoose Schema and registration optimizations
+**Learning:** In Mongoose schemas, using `default: Date.now()` executes the function at module load time, while `default: Date.now` (the function reference) ensures execution at document creation. Additionally, synchronous logging of large Express objects like `req` blocks the event loop.
+**Action:** Always use function references for dynamic defaults in Mongoose schemas. Always ensure unique indexes are present for frequently queried fields like email to maintain O(log N) performance. Avoid `console.log(req)` in production-ready routes.
