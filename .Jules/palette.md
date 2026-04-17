@@ -1,0 +1,3 @@
+## 2026-04-17 - Standardizing AngularJS Form Accessibility and Interactions
+**Learning:** In AngularJS 1.x applications, forms often rely on placeholders for labeling and `ng-click` for submission, which hurts accessibility and keyboard usability. Using `<label class="sr-only">` provides screen reader support without changing the visual design, and `ng-submit` on the form ensures "Enter to submit" works natively.
+**Action:** Always wrap form inputs with associated labels (using `.sr-only` if necessary) and prefer `ng-submit` over `ng-click` for primary form actions. Bind inputs to a model object (e.g., `f`) to maintain consistency with the project's data handling patterns.
