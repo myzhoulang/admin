@@ -18,7 +18,8 @@ var objectId = Schema.Types.ObjectId
     },
     email:{
       type: String,
-      required: true
+      required: true,
+      unique: true // ⚡ Bolt: Added unique index to ensure O(log N) lookup performance
     },
     sex:{
       type: Number
