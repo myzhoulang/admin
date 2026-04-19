@@ -1,0 +1,3 @@
+## 2025-05-14 - Improve login form accessibility and keyboard support
+**Learning:** Legacy AngularJS forms often lack semantic labels and rely on button-level click handlers, which breaks "Enter to submit" functionality and screen reader accessibility. Using `ng-submit` on the `<form>` element along with `type="submit"` on the primary button, combined with `.sr-only` labels linked via `id`, provides a significant accessibility win without altering the visual design.
+**Action:** Always wrap form groups in a `<form ng-submit="...">`, use `type="submit"` for the main action button, and ensure all inputs have associated `<label>` elements (using `.sr-only` if they should be visually hidden).
