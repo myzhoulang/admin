@@ -11,13 +11,8 @@ exports.register = function(req, res){
   var body = req.body
   var User = mongoose.model('User')
 
-  var user = new User({
-    name: body.name,
-    email: body.email,
-    password: body.password
-  });
-
   //查找
+  // ⚡ Bolt: Defer User instantiation until after existence check to save memory/CPU on failed registrations
   User.findOne({
     email: body.email
   },function(err,person){
@@ -34,6 +29,11 @@ exports.register = function(req, res){
           message: '该账户已存在'
         });
       }else{
+        var user = new User({
+          name: body.name,
+          email: body.email,
+          password: body.password
+        });
         user.save(function(err){
           var date = new Date();
           if(err){
