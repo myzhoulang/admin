@@ -18,7 +18,9 @@ var objectId = Schema.Types.ObjectId
     },
     email:{
       type: String,
-      required: true
+      required: true,
+      index: true,
+      unique: true
     },
     sex:{
       type: Number
@@ -32,12 +34,14 @@ var objectId = Schema.Types.ObjectId
       type: String
     },
     insDate:{
+      // ⚡ Bolt: Use function reference to ensure date is set at insertion time, not app start
       type: Date,
-      default: Date.now()
+      default: Date.now
     },
     offset: {
+      // ⚡ Bolt: Use function reference to ensure offset is calculated at insertion time
       type:Number,
-      default:new Date().getTimezoneOffset()
+      default: function() { return new Date().getTimezoneOffset(); }
     }
 
   });
