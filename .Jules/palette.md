@@ -1,0 +1,3 @@
+## 2025-05-14 - Improve accessibility and keyboard support in legacy forms
+**Learning:** Legacy AngularJS forms often lack semantic labels and native submission support. Using Bootstrap's `.sr-only` class allows adding accessible labels without affecting the visual design, and transitioning from `ng-click` on buttons to `ng-submit` on forms enables 'Enter to submit' functionality, significantly improving the UX for keyboard and screen reader users.
+**Action:** Always ensure forms have associated `<label>` elements (even if visually hidden via `.sr-only`) and use `ng-submit` instead of `ng-click` on the primary button to leverage native browser form behavior.
