@@ -18,7 +18,9 @@ var objectId = Schema.Types.ObjectId
     },
     email:{
       type: String,
-      required: true
+      required: true,
+      // ⚡ Bolt: Added unique index for O(log N) lookup and to ensure data integrity
+      unique: true
     },
     sex:{
       type: Number
@@ -33,11 +35,15 @@ var objectId = Schema.Types.ObjectId
     },
     insDate:{
       type: Date,
-      default: Date.now()
+      // ⚡ Bolt: Use function reference to ensure date is generated at document creation time
+      default: Date.now
     },
     offset: {
       type:Number,
-      default:new Date().getTimezoneOffset()
+      // ⚡ Bolt: Use function wrapper to ensure offset is calculated at document creation time
+      default: function() {
+        return new Date().getTimezoneOffset();
+      }
     }
 
   });
