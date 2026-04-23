@@ -18,7 +18,8 @@ var objectId = Schema.Types.ObjectId
     },
     email:{
       type: String,
-      required: true
+      required: true,
+      unique: true // ⚡ Bolt: Indexing email ensures O(log N) lookup time, critical for login/register performance
     },
     sex:{
       type: Number
