@@ -5,8 +5,11 @@
 //
 var mongoose = require('./mongo').mongoose
 var Schema = mongoose.Schema
-var objectId = Schema.Types.ObjectId
 //exports.Schema = function(){
+  /**
+   * ⚡ Bolt: Added unique index on email for O(log N) lookup performance during auth/registration.
+   * Fixed defaults to use function references so they are evaluated at document creation time.
+   */
   var Users = new Schema({
     name:{
       type: String,
@@ -18,7 +21,8 @@ var objectId = Schema.Types.ObjectId
     },
     email:{
       type: String,
-      required: true
+      required: true,
+      unique: true
     },
     sex:{
       type: Number
@@ -33,11 +37,11 @@ var objectId = Schema.Types.ObjectId
     },
     insDate:{
       type: Date,
-      default: Date.now()
+      default: Date.now
     },
     offset: {
       type:Number,
-      default:new Date().getTimezoneOffset()
+      default: function() { return new Date().getTimezoneOffset(); }
     }
 
   });
