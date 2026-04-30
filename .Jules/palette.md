@@ -1,0 +1,3 @@
+## 2025-03-24 - Standardizing AngularJS Form Accessibility
+**Learning:** Legacy AngularJS 1.x forms often lack semantic labels and rely on `ng-click` for submission. Implementing `ng-submit` on the `<form>` element combined with `type="submit"` on the primary button is a high-impact, low-effort UX win that enables native "Enter to submit" functionality across all inputs.
+**Action:** Always wrap form groups in a `<form ng-submit="...">` and ensure every input has an associated `<label>` (using `.sr-only` if visual design must be preserved). Use the "dot rule" (`f.email`) to ensure data binding is reliable across nested scopes.
