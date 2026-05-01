@@ -17,42 +17,30 @@ exports.register = function(req, res){
     password: body.password
   });
 
-  //查找
-  User.findOne({
-    email: body.email
-  },function(err,person){
+  // ⚡ Bolt: Optimize registration by attempting to save directly.
+  // Reducing database round-trips from 2 to 1 for successful registrations.
+  user.save(function(err){
     if(err){
-      res.json({
-        status: 500,
-        message: err.message
-      })
-
-    }else{
-      if(person){
-        res.json({
+      // ⚡ Bolt: Handle MongoDB duplicate key error (code 11000)
+      if (err.code === 11000) {
+        return res.json({
           status: -1,
           message: '该账户已存在'
         });
-      }else{
-        user.save(function(err){
-          var date = new Date();
-          if(err){
-            res.json({
-              status: 500,
-              message:err.message
-            })
-          }else{
-            res.json({
-              user: {
-                name: user.name,
-                email: user.email,
-                _id: user._id
-              },
-              status: 200
-            })
-          }
-        });
       }
+      res.json({
+        status: 500,
+        message:err.message
+      })
+    }else{
+      res.json({
+        user: {
+          name: user.name,
+          email: user.email,
+          _id: user._id
+        },
+        status: 200
+      })
     }
   });
 }
