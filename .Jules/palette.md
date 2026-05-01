@@ -1,0 +1,3 @@
+## 2025-05-15 - Standardizing AngularJS 1.x Forms for Accessibility and Reliability
+**Learning:** Legacy AngularJS forms often lack native 'Enter to submit' support when using button clicks instead of `ng-submit`. Additionally, the 'dot rule' (binding to an object like `f.email`) is crucial for reliable data binding across scopes. Visually hidden labels using `.sr-only` are essential for accessibility without altering the visual design.
+**Action:** Always use `ng-submit` on `<form>`, `type="submit"` on the primary button, and bind inputs to a scope-initialized object `f`. Ensure every input has a corresponding `<label>` (using `.sr-only` if necessary).
