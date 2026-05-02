@@ -1,0 +1,3 @@
+## 2025-05-15 - Enhancing Login Form Accessibility and Usability
+**Learning:** In legacy AngularJS 1.x applications, using `ng-submit` on the form and `type="submit"` on the button is essential for "Enter to submit" functionality, which is a major UX win for keyboard users. Additionally, explicitly initializing a data object on the scope (e.g., `$scope.f = {}`) and binding inputs to it (the "dot rule") ensures reliable two-way data binding and avoids scope inheritance issues.
+**Action:** Always wrap form inputs in a `<form>` with `ng-submit`, use `type="submit"` buttons, and ensure all inputs have associated `<label>` elements (using `.sr-only` if they should be visually hidden).
