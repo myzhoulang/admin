@@ -5,6 +5,7 @@
 define(['app'], function(app){
   // register
   app.registerController('registerCtrl', ['$scope', 'register', function($scope, register){
+    $scope.f = {};
     angular.extend($scope, {
       register: function(f){
         register.register(f).then(function(data){
