@@ -26,32 +26,33 @@ app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// ⚡ Bolt: express.static is moved up to serve static files before any unnecessary middleware (logger, body-parser, cookie-parser)
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 //app.use(bodyParser.multipart());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
 
-app.get('*', function(req, res){
-  var url = req.url
-  var oPath = path.parse(req.url);
-  console.log(req.url)
-  if(['.js', '.png','.css'].indexOf(oPath.ext) !== -1){
-    next();
-  }else{
-    res.render('index');
-  }
-});
-
+// ⚡ Bolt: Move API routes before the catch-all '*' route to avoid unnecessary logic in the catch-all.
 //
 app.post('/api/upload', upload.uploadFile);
 
 //
 app.post('/api/register', register.register);
+
+app.get('*', function(req, res, next){
+  // ⚡ Bolt: Removed console.log and path.parse to optimize performance.
+  // ⚡ Bolt: Using regex for a faster check on static file extensions.
+  if (/\.(js|png|css)$/.test(req.url)) {
+    next();
+  } else {
+    res.render('index');
+  }
+});
 
 
 // catch 404 and forward to error handler
