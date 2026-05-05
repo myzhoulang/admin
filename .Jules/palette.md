@@ -1,0 +1,3 @@
+## 2025-05-14 - Standardizing Form Accessibility and Keyboard Support
+**Learning:** Legacy forms in this app often rely on `ng-click` and lack `ng-submit`, which breaks the standard "Enter to submit" keyboard expectation. Additionally, they frequently omit `<label>` elements, relying solely on placeholders, which is a significant accessibility barrier.
+**Action:** When working on forms, always wrap inputs in a `<form ng-submit="...">`, use `<button type="submit">`, and provide `<label class="sr-only">` for each input to ensure screen reader support without altering the visual design. Initialize the scope data object (e.g., `$scope.f = {}`) to adhere to the 'dot rule' and ensure reliable model binding.
