@@ -24,34 +24,33 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 
-// uncomment after placing your favicon in /public
+// ⚡ Bolt: Move static assets to the top to bypass logger and parsers for better performance.
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(logger('dev'));
 //app.use(bodyParser.multipart());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
 
-app.get('*', function(req, res){
+// ⚡ Bolt: Move API routes before the catch-all route.
+app.post('/api/upload', upload.uploadFile);
+app.post('/api/register', register.register);
+
+// ⚡ Bolt: Fix ReferenceError by adding 'next' and remove console.log for performance.
+app.get('*', function(req, res, next){
   var url = req.url
   var oPath = path.parse(req.url);
-  console.log(req.url)
   if(['.js', '.png','.css'].indexOf(oPath.ext) !== -1){
     next();
   }else{
     res.render('index');
   }
 });
-
-//
-app.post('/api/upload', upload.uploadFile);
-
-//
-app.post('/api/register', register.register);
 
 
 // catch 404 and forward to error handler
