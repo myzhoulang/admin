@@ -26,20 +26,20 @@ app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// ⚡ Bolt: Move express.static above logger/parsers to bypass overhead for static assets
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 //app.use(bodyParser.multipart());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
 
-app.get('*', function(req, res){
-  var url = req.url
+// ⚡ Bolt: Include 'next' in signature to fix crashes on missing static assets and remove synchronous logging
+app.get('*', function(req, res, next){
   var oPath = path.parse(req.url);
-  console.log(req.url)
   if(['.js', '.png','.css'].indexOf(oPath.ext) !== -1){
     next();
   }else{
