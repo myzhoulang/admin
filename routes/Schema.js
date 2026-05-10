@@ -18,7 +18,8 @@ var objectId = Schema.Types.ObjectId
     },
     email:{
       type: String,
-      required: true
+      required: true,
+      unique: true // Speed up lookups with a unique index
     },
     sex:{
       type: Number
@@ -33,11 +34,13 @@ var objectId = Schema.Types.ObjectId
     },
     insDate:{
       type: Date,
-      default: Date.now()
+      // Use function reference so it's evaluated at document creation, not schema definition
+      default: Date.now
     },
     offset: {
       type:Number,
-      default:new Date().getTimezoneOffset()
+      // Use function reference so it's evaluated at document creation
+      default: function() { return new Date().getTimezoneOffset(); }
     }
 
   });
