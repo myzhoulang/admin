@@ -24,6 +24,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 
+// ⚡ Bolt: Moving static middleware above logger, bodyParser, and cookieParser
+// to bypass unnecessary processing for static assets.
+app.use(express.static(path.join(__dirname, 'public')));
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -31,27 +34,25 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
 
-app.get('*', function(req, res){
+// ⚡ Bolt: Specific API routes should come before the catch-all route
+// to avoid unnecessary path parsing in the catch-all handler.
+app.post('/api/upload', upload.uploadFile);
+app.post('/api/register', register.register);
+
+app.get('*', function(req, res, next){
   var url = req.url
   var oPath = path.parse(req.url);
-  console.log(req.url)
+  // ⚡ Bolt: Removed synchronous console.log to avoid blocking I/O
   if(['.js', '.png','.css'].indexOf(oPath.ext) !== -1){
     next();
   }else{
     res.render('index');
   }
 });
-
-//
-app.post('/api/upload', upload.uploadFile);
-
-//
-app.post('/api/register', register.register);
 
 
 // catch 404 and forward to error handler
