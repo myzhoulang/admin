@@ -1,0 +1,3 @@
+## 2025-05-15 - Improving Form Accessibility and Keyboard Navigation
+**Learning:** In legacy AngularJS applications, forms often use `ng-click` on buttons for submission, which breaks standard keyboard navigation (pressing Enter to submit). Transitioning to `ng-submit` on the form element restores this behavior. Additionally, using `sr-only` labels provides critical context for screen readers in minimal UI designs without altering the visual aesthetic.
+**Action:** Always prefer `ng-submit` over `ng-click` for form submissions and ensure every input has an associated label, using `sr-only` if a visual label is not desired.
