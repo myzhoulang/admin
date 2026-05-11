@@ -1,0 +1,3 @@
+## 2026-05-11 - Middleware ordering and catch-all optimization
+**Learning:** Reordering the Express middleware stack to place `express.static` before `logger`, `bodyParser`, and `cookieParser` reduces overhead for static assets by bypassing unnecessary processing. Additionally, removing synchronous `console.log` and using `path.extname` instead of `path.parse` in high-frequency catch-all routes further reduces latency.
+**Action:** Always place `express.static` at the top of the middleware stack unless logging/parsing is explicitly required for static assets, and ensure SPA fallback routes are as lean as possible.
