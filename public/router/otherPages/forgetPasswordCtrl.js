@@ -3,6 +3,7 @@
  */
 define(['app'], function(app){
   app.registerController('forgetPasswordCtrl', ['$scope', '$state', function($scope, $state){
+    $scope.f = {};
     angular.extend($scope, {
       goIndex: function(){
         $state.go('home.index');
