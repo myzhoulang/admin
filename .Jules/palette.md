@@ -1,0 +1,3 @@
+## 2026-05-13 - [Registration Form & Header Accessibility]
+**Learning:** In a multilingual or predominantly non-English application (e.g., Chinese), micro-UX improvements like error messages must be localized to maintain language consistency and avoid jarring transitions for the user. Additionally, icon-only buttons in legacy themes (like Inspinia) frequently lack `aria-label` attributes and contain structural typos (e.g., `clfa` instead of `class="fa"`).
+**Action:** Always check the surrounding language context before adding error messages or labels. Auditing all icon-only buttons for both proper class names and ARIA labels is a high-yield accessibility task in legacy Bootstrap repos.
