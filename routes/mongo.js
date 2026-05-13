@@ -7,6 +7,9 @@ exports.connectionMongo = function(){
   db.on('open', function(){
     console.log('链接打开')
   })
+  db.on('error', function(err){
+    console.error('MongoDB connection error:', err);
+  })
 }
 
 function closeConnection(){

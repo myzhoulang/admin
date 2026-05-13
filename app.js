@@ -26,24 +26,23 @@ app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 //app.use(bodyParser.multipart());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
 
-app.get('*', function(req, res){
-  var url = req.url
-  var oPath = path.parse(req.url);
-  console.log(req.url)
-  if(['.js', '.png','.css'].indexOf(oPath.ext) !== -1){
+app.get('*', function(req, res, next){
+  var ext = path.extname(req.url);
+  if(['.js', '.png','.css'].indexOf(ext) !== -1){
     next();
   }else{
-    res.render('index');
+    // ⚡ Bolt: Using sendFile instead of render for static SPA index improves performance
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
   }
 });
 
