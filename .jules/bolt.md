@@ -1,0 +1,3 @@
+## 2026-05-15 - Optimizing Express Middleware and SPA Routing
+**Learning:** Moving `express.static` above `logger` and other parsing middleware significantly reduces I/O and CPU overhead for static assets. Additionally, using `res.sendFile` instead of `res.render` for the static SPA `index.html` entry point bypasses the template engine (EJS) parsing, which is a measurable win. Using `req.path` with `path.extname` is safer than `req.url` as it ignores query strings.
+**Action:** Always place static asset middleware as high as possible in the stack unless logging/parsing is strictly required for those assets. Prefer `res.sendFile` for truly static HTML entry points in SPAs.
