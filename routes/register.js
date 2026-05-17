@@ -2,8 +2,7 @@
  * Created by mk on 2016/5/11.
  */
 
-var Schema = require('./Schema')
-var Q = require('q')
+require('./Schema')
 var mongo = require('./mongo')
 var mongoose = mongo.mongoose
 
@@ -11,13 +10,8 @@ exports.register = function(req, res){
   var body = req.body
   var User = mongoose.model('User')
 
-  var user = new User({
-    name: body.name,
-    email: body.email,
-    password: body.password
-  });
-
-  //查找
+  // Performance optimization: Check for existing user BEFORE instantiating a new User document.
+  // This avoids unnecessary memory allocation and CPU cycles if the user already exists.
   User.findOne({
     email: body.email
   },function(err,person){
@@ -34,8 +28,13 @@ exports.register = function(req, res){
           message: '该账户已存在'
         });
       }else{
+        var user = new User({
+          name: body.name,
+          email: body.email,
+          password: body.password
+        });
+
         user.save(function(err){
-          var date = new Date();
           if(err){
             res.json({
               status: 500,
