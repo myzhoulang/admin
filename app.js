@@ -26,20 +26,20 @@ app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// ⚡ Bolt: Move express.static above heavy middleware to speed up static asset delivery
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 //app.use(bodyParser.multipart());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
 
-app.get('*', function(req, res){
-  var url = req.url
-  var oPath = path.parse(req.url);
-  console.log(req.url)
+app.get('*', function(req, res, next){
+  // ⚡ Bolt: Use req.path to ignore query strings and avoid synchronous console.log
+  var oPath = path.parse(req.path);
   if(['.js', '.png','.css'].indexOf(oPath.ext) !== -1){
     next();
   }else{
