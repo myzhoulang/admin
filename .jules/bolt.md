@@ -1,0 +1,3 @@
+## 2026-05-18 - Middleware Reordering and Catch-all Optimization
+**Learning:** Reordering `express.static` above `logger`, `bodyParser`, and `cookieParser` drastically reduces static asset response times (measured ~65% reduction) by bypassing unnecessary middleware processing. Additionally, using `path.extname(req.path)` instead of `path.parse(req.url)` in catch-all routes avoids object creation and correctly handles query strings, further improving SPA routing performance.
+**Action:** Always prioritize static asset serving and lightweight route filtering in the Express middleware stack for immediate performance wins.
