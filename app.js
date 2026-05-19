@@ -26,21 +26,22 @@ app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// PERFORMANCE: Move express.static above heavy middleware (logger, bodyParser, cookieParser)
+// to bypass unnecessary processing for static assets.
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 //app.use(bodyParser.multipart());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
 
-app.get('*', function(req, res){
-  var url = req.url
-  var oPath = path.parse(req.url);
-  console.log(req.url)
-  if(['.js', '.png','.css'].indexOf(oPath.ext) !== -1){
+app.get('*', function(req, res, next){
+  // PERFORMANCE: Use path.extname(req.path) for faster extension checking
+  // and remove synchronous console.log to avoid blocking the event loop.
+  if(['.js', '.png','.css'].indexOf(path.extname(req.path)) !== -1){
     next();
   }else{
     res.render('index');
