@@ -2,11 +2,14 @@ var mongoose = require('mongoose'),
     db;
 
 exports.connectionMongo = function(){
-  mongoose.connect('mongodb://127.0.0.1:27017/jd');
+  mongoose.connect('mongodb://127.0.0.1:27017/jd', { server: { connectTimeoutMS: 1000 } });
   db = mongoose.connection;
   db.on('open', function(){
     console.log('链接打开')
   })
+  db.on('error', function(err) {
+    console.error('MongoDB connection error:', err.message);
+  });
 }
 
 function closeConnection(){

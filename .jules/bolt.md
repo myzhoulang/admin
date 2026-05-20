@@ -1,0 +1,3 @@
+## 2025-05-20 - Express Request Pipeline Optimization
+**Learning:** In Express, the order of middleware is critical for performance. Placing `express.static` above `logger` (`morgan`), `bodyParser`, and `cookieParser` ensures that static asset requests skip expensive logging and parsing operations. Additionally, a catch-all route for SPAs should check for file extensions using `path.extname` and delegate to `next()` if one exists, avoiding the overhead of template rendering for missing static files and fixing potential `ReferenceError`s when `next` is missing from the callback signature.
+**Action:** Always audit middleware order in Express apps, prioritizing static delivery and early-exit routing for non-SPA paths.
