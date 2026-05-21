@@ -26,32 +26,30 @@ app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 //app.use(bodyParser.multipart());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
-
-app.get('*', function(req, res){
-  var url = req.url
-  var oPath = path.parse(req.url);
-  console.log(req.url)
-  if(['.js', '.png','.css'].indexOf(oPath.ext) !== -1){
-    next();
-  }else{
-    res.render('index');
-  }
-});
 
 //
 app.post('/api/upload', upload.uploadFile);
 
 //
 app.post('/api/register', register.register);
+
+app.get('*', function(req, res, next){
+  var ext = path.extname(req.path).toLowerCase();
+  if(['.js', '.png', '.css', '.html', '.ico', '.jpg', '.jpeg', '.gif', '.svg', '.woff', '.woff2', '.ttf', '.eot'].indexOf(ext) !== -1){
+    next();
+  }else{
+    res.render('index');
+  }
+});
 
 
 // catch 404 and forward to error handler
