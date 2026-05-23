@@ -2,12 +2,13 @@
   <h1>404</h1>
   <h3>Page Not Found</h3>
   <div class="error-desc">
-    Sorry, but the page you are looking for has note been found. Try checking the URL for error, then hit the refresh button on your browser or try found something else in our app.
+    Sorry, but the page you are looking for has not been found. Try checking the URL for error, then hit the refresh button on your browser or try found something else in our app.
   </div>
 
-  <form action="" class="form-inline m-t">
+  <form ng-submit="search()" class="form-inline m-t">
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Seach for page"/>
+      <label for="search-input" class="sr-only">Search for page</label>
+      <input id="search-input" type="text" class="form-control" placeholder="Search for page" ng-model="f.search"/>
       <button class="btn btn-primary" type="submit">Search</button>
     </div>
   </form>
