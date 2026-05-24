@@ -1,0 +1,3 @@
+## 2026-05-23 - Middleware Reordering and Catch-all Optimization
+**Learning:** Reordering `express.static` above `logger`, `bodyParser`, and `cookieParser` significantly reduces response times for static assets (by bypassing unnecessary middleware) and reduces I/O by skipping logs. Additionally, optimizing the catch-all route to quickly bypass static extensions using `path.extname` prevents expensive template rendering for missing assets and fixes a potential `ReferenceError` by correctly defining the `next` parameter.
+**Action:** Always place `express.static` as high as possible in the middleware stack for SPAs, and ensure catch-all routes efficiently handle file extension checks with proper `next()` calls.
