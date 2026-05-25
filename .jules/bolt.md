@@ -1,0 +1,3 @@
+## 2026-05-25 - Optimize Express Request Pipeline Efficiency
+**Learning:** Reordering `express.static` middleware above `logger` and parsers significantly reduces latency for static assets by bypassing unnecessary middleware processing. Additionally, moving the catch-all SPA route after API routes and using `req.path` for extension checks ensures that static assets and API calls are handled with minimal overhead.
+**Action:** Always prioritize static asset and API route definitions before catch-all SPA routes. Ensure `express.static` is placed as high as possible in the middleware stack to avoid redundant processing like logging or body parsing for non-dynamic content.
