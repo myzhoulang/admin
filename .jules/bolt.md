@@ -1,0 +1,3 @@
+## 2026-05-26 - Middleware ordering and catch-all route optimization
+**Learning:** Reordering middleware to place `express.static` above `logger` and parsers significantly reduces overhead for static asset requests by bypassing unnecessary processing and I/O (logging). Refactoring the catch-all route to use `path.extname(req.path)` and a broader whitelist of extensions prevents 404 assets from incorrectly triggering SPA rendering, improving both accuracy and performance.
+**Action:** Always evaluate the middleware stack for early-exit opportunities for static assets. Use `req.path` instead of `req.url` for extension checks to avoid issues with query parameters.
