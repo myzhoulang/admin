@@ -26,21 +26,29 @@ app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+// Bolt Optimization: Move static middleware above logger and parsers
+// This allows static assets to be served without unnecessary logging, cookie parsing, or body parsing,
+// reducing I/O and CPU overhead for every asset request.
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(logger('dev'));
 //app.use(bodyParser.multipart());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
 
-app.get('*', function(req, res){
-  var url = req.url
-  var oPath = path.parse(req.url);
-  console.log(req.url)
-  if(['.js', '.png','.css'].indexOf(oPath.ext) !== -1){
+// Bolt Optimization: Refactor catch-all route for better performance and reliability
+// 1. Added missing 'next' parameter.
+// 2. Removed synchronous console.log calls.
+// 3. Use 'req.path' to avoid query parameters interfering with extension checks.
+// 4. Expanded extension list to ensure 404 assets don't unnecessarily render the SPA index.
+app.get('*', function(req, res, next){
+  var oPath = path.parse(req.path);
+  if(['.js', '.png', '.css', '.html', '.ico', '.jpg', '.jpeg', '.gif', '.svg', '.woff', '.woff2', '.ttf', '.eot'].indexOf(oPath.ext) !== -1){
     next();
   }else{
     res.render('index');
