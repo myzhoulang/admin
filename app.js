@@ -24,6 +24,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 
+// Move static middleware up to bypass logger and parsers for static assets
+app.use(express.static(path.join(__dirname, 'public')));
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -31,18 +33,21 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
 
-app.get('*', function(req, res){
-  var url = req.url
-  var oPath = path.parse(req.url);
-  console.log(req.url)
-  if(['.js', '.png','.css'].indexOf(oPath.ext) !== -1){
+// Catch-all route for SPA - optimized to avoid unnecessary processing for missing static assets
+app.get('*', function(req, res, next){
+  // Use path.extname(req.path) to correctly identify extensions even with query parameters
+  var ext = path.extname(req.path);
+  var staticExts = ['.js', '.png', '.css', '.html', '.ico', '.jpg', '.jpeg', '.gif', '.svg', '.woff', '.woff2', '.ttf', '.eot'];
+
+  if (staticExts.indexOf(ext) !== -1) {
+    // If it looks like a static asset but reached here, it's a 404
     next();
-  }else{
+  } else {
+    // Render the SPA entry point
     res.render('index');
   }
 });
