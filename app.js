@@ -24,6 +24,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 
+// Serve static files as early as possible to bypass unnecessary middleware (logger, body-parser, etc.)
+app.use(express.static(path.join(__dirname, 'public')));
+
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -31,16 +34,18 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
 
-app.get('*', function(req, res){
-  var url = req.url
-  var oPath = path.parse(req.url);
-  console.log(req.url)
-  if(['.js', '.png','.css'].indexOf(oPath.ext) !== -1){
+// Optimized catch-all route for SPA.
+// Uses req.path and path.extname for more reliable extension detection.
+// Added missing 'next' parameter to fix potential crash.
+app.get('*', function(req, res, next){
+  var ext = path.extname(req.path);
+  // List of extensions to bypass SPA rendering (e.g. if a static file is missing, don't serve index.html)
+  var staticExtensions = ['.js', '.png', '.css', '.html', '.ico', '.jpg', '.jpeg', '.gif', '.svg', '.woff', '.woff2', '.ttf', '.eot'];
+  if(staticExtensions.indexOf(ext) !== -1){
     next();
   }else{
     res.render('index');
