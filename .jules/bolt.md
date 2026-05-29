@@ -1,0 +1,3 @@
+## 2026-05-29 - [Middleware Reordering & SPA Route Optimization]
+**Learning:** Moving `express.static` above logging and parsing middleware significantly reduces response times for static assets by avoiding unnecessary I/O and CPU overhead. Additionally, optimizing the catch-all SPA route with more specific extension checks prevents the server from attempting to render the main index for missing static assets, further improving efficiency and preventing confusing 404 behavior.
+**Action:** Always place static file middleware as high as possible in the stack and ensure SPA catch-all routes correctly filter out requests that should be handled as static assets (even if they might be 404s).
