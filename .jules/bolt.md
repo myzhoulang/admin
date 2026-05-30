@@ -1,0 +1,3 @@
+## 2025-05-14 - Middleware Reordering and Catch-all Route Optimization
+**Learning:** Reordering `express.static` and `favicon` above logging and parsing middleware significantly reduces response times for static assets by bypassing unnecessary processing. Additionally, optimizing the SPA catch-all route by using `req.path` (instead of `req.url` which includes query params) and expanding the extension exclusion list prevents expensive template rendering for missing assets.
+**Action:** Always place static asset middleware as high as possible in the stack and ensure catch-all routes correctly handle static asset extensions using `req.path`.
