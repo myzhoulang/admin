@@ -24,23 +24,24 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 
-// uncomment after placing your favicon in /public
+// Move express.static and favicon above logger and parsers for performance
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(logger('dev'));
 //app.use(bodyParser.multipart());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
 
-app.get('*', function(req, res){
-  var url = req.url
-  var oPath = path.parse(req.url);
-  console.log(req.url)
-  if(['.js', '.png','.css'].indexOf(oPath.ext) !== -1){
+app.get('*', function(req, res, next){
+  var oPath = path.parse(req.path);
+  // Optimization: Avoid logging every request and ensure static assets not found in express.static
+  // don't accidentally render the SPA index if they have common static extensions.
+  if(['.js', '.png', '.css', '.ico', '.jpg', '.jpeg', '.gif', '.svg', '.woff', '.woff2', '.ttf', '.eot'].indexOf(oPath.ext) !== -1){
     next();
   }else{
     res.render('index');
