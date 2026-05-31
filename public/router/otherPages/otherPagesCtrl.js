@@ -5,7 +5,12 @@ define(['app'], function(app){
 	}]);
 
 	//notFoundCtrl
-	app.registerController('notFoundCtrl', ['$scope', function($scope){
-
+	app.registerController('notFoundCtrl', ['$scope', '$state', function($scope, $state){
+		$scope.f = {
+			query: '',
+			search: function(){
+				$state.go('home.otherPages.searchResult');
+			}
+		};
 	}]);
 });
