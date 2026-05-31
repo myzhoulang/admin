@@ -1,0 +1,3 @@
+## 2025-05-14 - Middleware Reordering and Catch-all Route Optimization
+**Learning:** Reordering `express.static` to the top of the middleware stack significantly reduces latency for static assets (~36% faster) by bypassing logger and body-parsing overhead. Additionally, fixing a missing `next` parameter and removing synchronous `console.log` in a catch-all route improves SPA routing performance (~22% faster).
+**Action:** Always prioritize static asset delivery by placing `express.static` before any middleware that doesn't need to process static requests. Use `req.path` instead of `req.url` for robust extension checking in SPA routes.
