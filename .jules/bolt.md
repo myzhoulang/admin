@@ -1,0 +1,3 @@
+## 2026-05-30 - Middleware Reordering and SPA Route Optimization
+**Learning:** Moving `express.static` to the top of the middleware stack significantly reduces response times for static assets by bypassing logging and body parsing. Additionally, fixing the `next` parameter bug and removing synchronous `console.log` in the catch-all route improves overall application stability and performance.
+**Action:** Always place static asset middleware as high as possible in the Express stack and avoid synchronous I/O in high-frequency route handlers. Define static extension lists outside of request handlers to avoid redundant allocations.
